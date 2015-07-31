@@ -1,0 +1,572 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AC45E0351B613F2C00F99066 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC45E0331B613F2C00F99066 /* Bolts.framework */; };
+		AC45E0361B613F2C00F99066 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC45E0341B613F2C00F99066 /* Parse.framework */; };
+		AC45E0381B613F9E00F99066 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC45E0371B613F9E00F99066 /* AudioToolbox.framework */; };
+		AC45E03A1B613FA500F99066 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC45E0391B613FA500F99066 /* CFNetwork.framework */; };
+		AC45E03D1B613FAC00F99066 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC45E03B1B613FAC00F99066 /* CoreGraphics.framework */; };
+		AC45E03E1B613FAC00F99066 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC45E03C1B613FAC00F99066 /* CoreLocation.framework */; };
+		AC45E0431B613FB900F99066 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC45E03F1B613FB900F99066 /* QuartzCore.framework */; };
+		AC45E0441B613FB900F99066 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC45E0401B613FB900F99066 /* Security.framework */; };
+		AC45E0451B613FB900F99066 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC45E0411B613FB900F99066 /* Social.framework */; };
+		AC45E04A1B613FCB00F99066 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AC45E0471B613FCB00F99066 /* libsqlite3.dylib */; };
+		AC45E04B1B613FCB00F99066 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AC45E0481B613FCB00F99066 /* libz.dylib */; };
+		AC45E04C1B613FCB00F99066 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC45E0491B613FCB00F99066 /* SystemConfiguration.framework */; };
+		AC45E04E1B613FD200F99066 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC45E04D1B613FD200F99066 /* Accounts.framework */; };
+		AC45E0501B61673E00F99066 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC45E04F1B61673E00F99066 /* Group.swift */; };
+		AC45E0551B6168D400F99066 /* empty.m in Sources */ = {isa = PBXBuildFile; fileRef = AC45E0541B6168D400F99066 /* empty.m */; };
+		AC45E05E1B656B5F00F99066 /* Timeslot.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC45E05D1B656B5F00F99066 /* Timeslot.swift */; };
+		AC4E1A451B694E300090A8E5 /* TimeGridViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4E1A441B694E300090A8E5 /* TimeGridViewController.swift */; };
+		AC4E1A481B694FB40090A8E5 /* TimeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4E1A471B694FB40090A8E5 /* TimeButton.swift */; };
+		AC4E1A4A1B6958F70090A8E5 /* SelectTimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4E1A491B6958F70090A8E5 /* SelectTimeViewController.swift */; };
+		ACD45AFC1B5405BF009B1DC9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD45AFB1B5405BF009B1DC9 /* AppDelegate.swift */; };
+		ACD45B011B5405BF009B1DC9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACD45AFF1B5405BF009B1DC9 /* Main.storyboard */; };
+		ACD45B031B5405BF009B1DC9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACD45B021B5405BF009B1DC9 /* Images.xcassets */; };
+		ACD45B061B5405BF009B1DC9 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACD45B041B5405BF009B1DC9 /* LaunchScreen.xib */; };
+		ACD45B121B5405BF009B1DC9 /* WeMeetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD45B111B5405BF009B1DC9 /* WeMeetTests.swift */; };
+		ACD45B1C1B54062F009B1DC9 /* HomeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD45B1B1B54062F009B1DC9 /* HomeTableViewController.swift */; };
+		ACE4F8EF1B657869005FBE85 /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACE4F8EE1B657869005FBE85 /* ParseUI.framework */; };
+		ACE4F8F21B667A9C005FBE85 /* NewGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE4F8F11B667A9C005FBE85 /* NewGroupViewController.swift */; };
+		ACE4F8F81B67C134005FBE85 /* GroupDisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE4F8F71B67C134005FBE85 /* GroupDisplayViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		ACD45B0C1B5405BF009B1DC9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ACD45AEE1B5405BF009B1DC9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = ACD45AF51B5405BF009B1DC9;
+			remoteInfo = WeMeet;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		AC45E0331B613F2C00F99066 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
+		AC45E0341B613F2C00F99066 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		AC45E0371B613F9E00F99066 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		AC45E0391B613FA500F99066 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		AC45E03B1B613FAC00F99066 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		AC45E03C1B613FAC00F99066 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		AC45E03F1B613FB900F99066 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		AC45E0401B613FB900F99066 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		AC45E0411B613FB900F99066 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		AC45E0471B613FCB00F99066 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		AC45E0481B613FCB00F99066 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		AC45E0491B613FCB00F99066 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		AC45E04D1B613FD200F99066 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		AC45E04F1B61673E00F99066 /* Group.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
+		AC45E0541B6168D400F99066 /* empty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = empty.m; sourceTree = "<group>"; };
+		AC45E05D1B656B5F00F99066 /* Timeslot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Timeslot.swift; sourceTree = "<group>"; };
+		AC4E1A441B694E300090A8E5 /* TimeGridViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeGridViewController.swift; sourceTree = "<group>"; };
+		AC4E1A471B694FB40090A8E5 /* TimeButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TimeButton.swift; path = ../../TimeMatch/TimeMatch/TimeButton.swift; sourceTree = "<group>"; };
+		AC4E1A491B6958F70090A8E5 /* SelectTimeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectTimeViewController.swift; sourceTree = "<group>"; };
+		ACD45AF61B5405BF009B1DC9 /* WeMeet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeMeet.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		ACD45AFA1B5405BF009B1DC9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ACD45AFB1B5405BF009B1DC9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		ACD45B001B5405BF009B1DC9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		ACD45B021B5405BF009B1DC9 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		ACD45B051B5405BF009B1DC9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		ACD45B0B1B5405BF009B1DC9 /* WeMeetTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeMeetTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		ACD45B101B5405BF009B1DC9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ACD45B111B5405BF009B1DC9 /* WeMeetTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeMeetTests.swift; sourceTree = "<group>"; };
+		ACD45B1B1B54062F009B1DC9 /* HomeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeTableViewController.swift; path = ../HomeTableViewController.swift; sourceTree = "<group>"; };
+		ACE4F8ED1B65782C005FBE85 /* WeMeet-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WeMeet-Bridging-Header.h"; sourceTree = "<group>"; };
+		ACE4F8EE1B657869005FBE85 /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ParseUI.framework; path = "../../../../../Downloads/parse-library-1.7.5/ParseUI.framework"; sourceTree = "<group>"; };
+		ACE4F8F11B667A9C005FBE85 /* NewGroupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewGroupViewController.swift; sourceTree = "<group>"; };
+		ACE4F8F71B67C134005FBE85 /* GroupDisplayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupDisplayViewController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		ACD45AF31B5405BF009B1DC9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AC45E04E1B613FD200F99066 /* Accounts.framework in Frameworks */,
+				AC45E04A1B613FCB00F99066 /* libsqlite3.dylib in Frameworks */,
+				ACE4F8EF1B657869005FBE85 /* ParseUI.framework in Frameworks */,
+				AC45E04B1B613FCB00F99066 /* libz.dylib in Frameworks */,
+				AC45E04C1B613FCB00F99066 /* SystemConfiguration.framework in Frameworks */,
+				AC45E0431B613FB900F99066 /* QuartzCore.framework in Frameworks */,
+				AC45E0441B613FB900F99066 /* Security.framework in Frameworks */,
+				AC45E0451B613FB900F99066 /* Social.framework in Frameworks */,
+				AC45E03D1B613FAC00F99066 /* CoreGraphics.framework in Frameworks */,
+				AC45E03E1B613FAC00F99066 /* CoreLocation.framework in Frameworks */,
+				AC45E03A1B613FA500F99066 /* CFNetwork.framework in Frameworks */,
+				AC45E0381B613F9E00F99066 /* AudioToolbox.framework in Frameworks */,
+				AC45E0361B613F2C00F99066 /* Parse.framework in Frameworks */,
+				AC45E0351B613F2C00F99066 /* Bolts.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ACD45B081B5405BF009B1DC9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AC45E0301B613F0900F99066 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				AC45E04F1B61673E00F99066 /* Group.swift */,
+				AC45E05D1B656B5F00F99066 /* Timeslot.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		AC45E0311B613F0900F99066 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				ACD45B1B1B54062F009B1DC9 /* HomeTableViewController.swift */,
+				ACE4F8F11B667A9C005FBE85 /* NewGroupViewController.swift */,
+				ACE4F8F71B67C134005FBE85 /* GroupDisplayViewController.swift */,
+				AC4E1A491B6958F70090A8E5 /* SelectTimeViewController.swift */,
+				AC4E1A441B694E300090A8E5 /* TimeGridViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		AC45E0321B613F0900F99066 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				ACE4F8EE1B657869005FBE85 /* ParseUI.framework */,
+				AC45E04D1B613FD200F99066 /* Accounts.framework */,
+				AC45E0471B613FCB00F99066 /* libsqlite3.dylib */,
+				AC45E0481B613FCB00F99066 /* libz.dylib */,
+				AC45E0491B613FCB00F99066 /* SystemConfiguration.framework */,
+				AC45E03F1B613FB900F99066 /* QuartzCore.framework */,
+				AC45E0401B613FB900F99066 /* Security.framework */,
+				AC45E0411B613FB900F99066 /* Social.framework */,
+				AC45E03B1B613FAC00F99066 /* CoreGraphics.framework */,
+				AC45E03C1B613FAC00F99066 /* CoreLocation.framework */,
+				AC45E0391B613FA500F99066 /* CFNetwork.framework */,
+				AC45E0371B613F9E00F99066 /* AudioToolbox.framework */,
+				AC45E0331B613F2C00F99066 /* Bolts.framework */,
+				AC45E0341B613F2C00F99066 /* Parse.framework */,
+			);
+			path = Frameworks;
+			sourceTree = "<group>";
+		};
+		AC4E1A461B694F9C0090A8E5 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				AC4E1A471B694FB40090A8E5 /* TimeButton.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		ACD45AED1B5405BF009B1DC9 = {
+			isa = PBXGroup;
+			children = (
+				ACD45AF81B5405BF009B1DC9 /* WeMeet */,
+				ACD45B0E1B5405BF009B1DC9 /* WeMeetTests */,
+				ACD45AF71B5405BF009B1DC9 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		ACD45AF71B5405BF009B1DC9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				ACD45AF61B5405BF009B1DC9 /* WeMeet.app */,
+				ACD45B0B1B5405BF009B1DC9 /* WeMeetTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		ACD45AF81B5405BF009B1DC9 /* WeMeet */ = {
+			isa = PBXGroup;
+			children = (
+				ACE4F8ED1B65782C005FBE85 /* WeMeet-Bridging-Header.h */,
+				AC45E0301B613F0900F99066 /* Models */,
+				AC45E0311B613F0900F99066 /* View Controllers */,
+				AC4E1A461B694F9C0090A8E5 /* Views */,
+				AC45E0321B613F0900F99066 /* Frameworks */,
+				ACD45AFB1B5405BF009B1DC9 /* AppDelegate.swift */,
+				ACD45AFF1B5405BF009B1DC9 /* Main.storyboard */,
+				ACD45B021B5405BF009B1DC9 /* Images.xcassets */,
+				ACD45B041B5405BF009B1DC9 /* LaunchScreen.xib */,
+				ACD45AF91B5405BF009B1DC9 /* Supporting Files */,
+				AC45E0541B6168D400F99066 /* empty.m */,
+			);
+			path = WeMeet;
+			sourceTree = "<group>";
+		};
+		ACD45AF91B5405BF009B1DC9 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				ACD45AFA1B5405BF009B1DC9 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		ACD45B0E1B5405BF009B1DC9 /* WeMeetTests */ = {
+			isa = PBXGroup;
+			children = (
+				ACD45B111B5405BF009B1DC9 /* WeMeetTests.swift */,
+				ACD45B0F1B5405BF009B1DC9 /* Supporting Files */,
+			);
+			path = WeMeetTests;
+			sourceTree = "<group>";
+		};
+		ACD45B0F1B5405BF009B1DC9 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				ACD45B101B5405BF009B1DC9 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		ACD45AF51B5405BF009B1DC9 /* WeMeet */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ACD45B151B5405BF009B1DC9 /* Build configuration list for PBXNativeTarget "WeMeet" */;
+			buildPhases = (
+				ACD45AF21B5405BF009B1DC9 /* Sources */,
+				ACD45AF31B5405BF009B1DC9 /* Frameworks */,
+				ACD45AF41B5405BF009B1DC9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WeMeet;
+			productName = WeMeet;
+			productReference = ACD45AF61B5405BF009B1DC9 /* WeMeet.app */;
+			productType = "com.apple.product-type.application";
+		};
+		ACD45B0A1B5405BF009B1DC9 /* WeMeetTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ACD45B181B5405BF009B1DC9 /* Build configuration list for PBXNativeTarget "WeMeetTests" */;
+			buildPhases = (
+				ACD45B071B5405BF009B1DC9 /* Sources */,
+				ACD45B081B5405BF009B1DC9 /* Frameworks */,
+				ACD45B091B5405BF009B1DC9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				ACD45B0D1B5405BF009B1DC9 /* PBXTargetDependency */,
+			);
+			name = WeMeetTests;
+			productName = WeMeetTests;
+			productReference = ACD45B0B1B5405BF009B1DC9 /* WeMeetTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		ACD45AEE1B5405BF009B1DC9 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0630;
+				ORGANIZATIONNAME = "Alex Yang";
+				TargetAttributes = {
+					ACD45AF51B5405BF009B1DC9 = {
+						CreatedOnToolsVersion = 6.3.2;
+						DevelopmentTeam = JMMEA7PMD4;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 0;
+							};
+							com.apple.InAppPurchase = {
+								enabled = 0;
+							};
+						};
+					};
+					ACD45B0A1B5405BF009B1DC9 = {
+						CreatedOnToolsVersion = 6.3.2;
+						TestTargetID = ACD45AF51B5405BF009B1DC9;
+					};
+				};
+			};
+			buildConfigurationList = ACD45AF11B5405BF009B1DC9 /* Build configuration list for PBXProject "WeMeet" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = ACD45AED1B5405BF009B1DC9;
+			productRefGroup = ACD45AF71B5405BF009B1DC9 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				ACD45AF51B5405BF009B1DC9 /* WeMeet */,
+				ACD45B0A1B5405BF009B1DC9 /* WeMeetTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		ACD45AF41B5405BF009B1DC9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ACD45B011B5405BF009B1DC9 /* Main.storyboard in Resources */,
+				ACD45B061B5405BF009B1DC9 /* LaunchScreen.xib in Resources */,
+				ACD45B031B5405BF009B1DC9 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ACD45B091B5405BF009B1DC9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		ACD45AF21B5405BF009B1DC9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AC45E05E1B656B5F00F99066 /* Timeslot.swift in Sources */,
+				AC4E1A4A1B6958F70090A8E5 /* SelectTimeViewController.swift in Sources */,
+				ACE4F8F21B667A9C005FBE85 /* NewGroupViewController.swift in Sources */,
+				AC45E0501B61673E00F99066 /* Group.swift in Sources */,
+				AC4E1A451B694E300090A8E5 /* TimeGridViewController.swift in Sources */,
+				AC4E1A481B694FB40090A8E5 /* TimeButton.swift in Sources */,
+				ACE4F8F81B67C134005FBE85 /* GroupDisplayViewController.swift in Sources */,
+				AC45E0551B6168D400F99066 /* empty.m in Sources */,
+				ACD45B1C1B54062F009B1DC9 /* HomeTableViewController.swift in Sources */,
+				ACD45AFC1B5405BF009B1DC9 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ACD45B071B5405BF009B1DC9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ACD45B121B5405BF009B1DC9 /* WeMeetTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		ACD45B0D1B5405BF009B1DC9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = ACD45AF51B5405BF009B1DC9 /* WeMeet */;
+			targetProxy = ACD45B0C1B5405BF009B1DC9 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		ACD45AFF1B5405BF009B1DC9 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ACD45B001B5405BF009B1DC9 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		ACD45B041B5405BF009B1DC9 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ACD45B051B5405BF009B1DC9 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		ACD45B131B5405BF009B1DC9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		ACD45B141B5405BF009B1DC9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		ACD45B161B5405BF009B1DC9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/WeMeet/Frameworks",
+					"/Users/Alexandre/Downloads/parse-library-1.7.5",
+				);
+				INFOPLIST_FILE = WeMeet/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "WeMeet/WeMeet-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		ACD45B171B5405BF009B1DC9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/WeMeet/Frameworks",
+					"/Users/Alexandre/Downloads/parse-library-1.7.5",
+				);
+				INFOPLIST_FILE = WeMeet/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "WeMeet/WeMeet-Bridging-Header.h";
+			};
+			name = Release;
+		};
+		ACD45B191B5405BF009B1DC9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = WeMeetTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WeMeet.app/WeMeet";
+			};
+			name = Debug;
+		};
+		ACD45B1A1B5405BF009B1DC9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = WeMeetTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WeMeet.app/WeMeet";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		ACD45AF11B5405BF009B1DC9 /* Build configuration list for PBXProject "WeMeet" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ACD45B131B5405BF009B1DC9 /* Debug */,
+				ACD45B141B5405BF009B1DC9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ACD45B151B5405BF009B1DC9 /* Build configuration list for PBXNativeTarget "WeMeet" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ACD45B161B5405BF009B1DC9 /* Debug */,
+				ACD45B171B5405BF009B1DC9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ACD45B181B5405BF009B1DC9 /* Build configuration list for PBXNativeTarget "WeMeetTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ACD45B191B5405BF009B1DC9 /* Debug */,
+				ACD45B1A1B5405BF009B1DC9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = ACD45AEE1B5405BF009B1DC9 /* Project object */;
+}
