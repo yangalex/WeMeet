@@ -19,12 +19,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.LightContent
+        UINavigationBar.appearance().setBackgroundImage(UIImage(named: "NavBackground"), forBarMetrics: UIBarMetrics.Default)
         
         Parse.setApplicationId("Qxt2lgULCKkQyBdvTRP2LPcPRzfzUZnTYjCY7txF", clientKey:"wOSYQC2Lcrc4dOZLKR91VdYMzugT5qWNJtLL02Hp")
         PFUser.enableRevocableSessionInBackground()
         
         var testUser = PFUser()
-        testUser.username = "test3"
+        testUser.username = "test"
         testUser.password = "test"
         
 //        testUser.signUpInBackgroundWithBlock { success, error in

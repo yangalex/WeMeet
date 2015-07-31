@@ -11,17 +11,12 @@ import UIKit
 class SelectTimeViewController: UIViewController {
 
     @IBOutlet weak var containerView: UIView!
-    @IBOutlet weak var doneButton: UIButton!
     
     var timeGrid: TimeGridViewController!
     var currentGroup: Group?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // design done button
-        doneButton.backgroundColor = UIColor(red: 86/255, green: 212/255, blue: 243/255, alpha: 1.0)
-        doneButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
         
     }
 
@@ -61,6 +56,10 @@ class SelectTimeViewController: UIViewController {
         if segue.identifier == "TimeGridSegue" {
             timeGrid = segue.destinationViewController as! TimeGridViewController
         }
+    }
+    
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return UIStatusBarStyle.LightContent
     }
 
 }

@@ -8,13 +8,12 @@
 
 import UIKit
 
-class GroupDisplayViewController: UIViewController {
+class GroupDisplayViewController: UIViewController, MemberFilterTableViewControllerDelegate {
     
     var currentGroup: Group?
     var timeslots = [Timeslot]()
-    var users: [PFUser]!
+    var selectedUsers: [PFUser]!
     
-    @IBOutlet weak var memberTableView: UITableView!
     @IBOutlet weak var selectTimesButton: UIButton!
     
     override func viewDidLoad() {
@@ -23,18 +22,14 @@ class GroupDisplayViewController: UIViewController {
         self.navigationController?.navigationBar.topItem?.backBarButtonItem = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.Plain, target: nil, action: nil)
         self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
         
-        // setup table height
-//        memberTableView.tableFooterView = UIView(frame: CGRectMake(0, 0, memberTableView.frame.width, 0))
-        memberTableView.frame = CGRectMake(memberTableView.frame.origin.x, memberTableView.frame.origin.y, memberTableView.frame.size.width, memberTableView.rowHeight*CGFloat(currentGroup!.users.count))
-        
         // setup button design
         selectTimesButton.backgroundColor = UIColor(red: 86/255, green: 212/255, blue: 243/255, alpha: 1.0)
         selectTimesButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
         selectTimesButton.titleLabel?.font = UIFont(name: "Helvetica-Bold", size: 18)
         
-        memberTableView.dataSource = self
-        memberTableView.delegate = self
-        users = currentGroup?.users
+//        memberTableView.dataSource = self
+//        memberTableView.delegate = self
+        selectedUsers = currentGroup?.users
         
         
         loadTimeslots()
@@ -48,16 +43,21 @@ class GroupDisplayViewController: UIViewController {
         
         timeQuery?.findObjectsInBackgroundWithBlock { objects, error in
             if let timeslots = objects as? [Timeslot] {
-                self.timeslots = self.matchTimeslots(timeslots, forUsers: self.currentGroup!.users)
+                self.timeslots = self.matchTimeslots(timeslots, forUsers: self.selectedUsers)
                 for timeslot in self.timeslots {
                     println(timeslot.stringDescription())
                 }
             }
-            
         }
     }
     
+    // How this works: initialize separate arrays of timeslots for their respective user and put them in an array of arrays
+    // find intersection among all arrays
     func matchTimeslots(timeslots: [Timeslot], forUsers users: [PFUser]) -> [Timeslot] {
+        if users.count == 0 {
+            return [Timeslot]()
+        }
+        
         var userArrays: [[Timeslot]] = [[Timeslot]]()
         for user in users {
             var tempUserArray = timeslots.filter({$0.user.username == user.username})
@@ -91,7 +91,10 @@ class GroupDisplayViewController: UIViewController {
     }
     
     
-    
+    func didFinishFilteringUsers(selectedUsers: [PFUser]) {
+        self.selectedUsers = selectedUsers
+        loadTimeslots()
+    }
     
     
     // MARK: - Navigation
@@ -100,12 +103,20 @@ class GroupDisplayViewController: UIViewController {
         if segue.identifier == "SelectTimeSegue" {
             let destinationController = segue.destinationViewController as! SelectTimeViewController
             destinationController.currentGroup = self.currentGroup
+        } else if segue.identifier == "FilterSegue" {
+            let destinationNavigationController = segue.destinationViewController as! UINavigationController
+            let destinationController = destinationNavigationController.topViewController as! MemberFilterTableViewController
+            
+            destinationController.users = currentGroup?.users
+            destinationController.selectedUsers = self.selectedUsers
+            destinationController.delegate = self
         }
     }
     
 
 }
 
+/*
 extension GroupDisplayViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
             return users.count+1
@@ -192,7 +203,7 @@ extension GroupDisplayViewController: UITableViewDataSource, UITableViewDelegate
         }
     }
 }
-
+*/
 
 
 
