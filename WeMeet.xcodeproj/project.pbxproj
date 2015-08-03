@@ -27,6 +27,8 @@
 		AC4E1A481B694FB40090A8E5 /* TimeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4E1A471B694FB40090A8E5 /* TimeButton.swift */; };
 		AC4E1A4A1B6958F70090A8E5 /* SelectTimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4E1A491B6958F70090A8E5 /* SelectTimeViewController.swift */; };
 		AC5A5B5B1B6BCA4B007A975F /* MemberFilterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5A5B5A1B6BCA4B007A975F /* MemberFilterTableViewController.swift */; };
+		AC5A5B8D1B6FF645007A975F /* TimeDisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5A5B8C1B6FF645007A975F /* TimeDisplayViewController.swift */; };
+		AC5A5B8F1B6FF6A3007A975F /* TimeDisplayButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5A5B8E1B6FF6A3007A975F /* TimeDisplayButton.swift */; };
 		ACD45AFC1B5405BF009B1DC9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD45AFB1B5405BF009B1DC9 /* AppDelegate.swift */; };
 		ACD45B011B5405BF009B1DC9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACD45AFF1B5405BF009B1DC9 /* Main.storyboard */; };
 		ACD45B031B5405BF009B1DC9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACD45B021B5405BF009B1DC9 /* Images.xcassets */; };
@@ -69,6 +71,8 @@
 		AC4E1A471B694FB40090A8E5 /* TimeButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TimeButton.swift; path = ../../TimeMatch/TimeMatch/TimeButton.swift; sourceTree = "<group>"; };
 		AC4E1A491B6958F70090A8E5 /* SelectTimeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectTimeViewController.swift; sourceTree = "<group>"; };
 		AC5A5B5A1B6BCA4B007A975F /* MemberFilterTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemberFilterTableViewController.swift; sourceTree = "<group>"; };
+		AC5A5B8C1B6FF645007A975F /* TimeDisplayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeDisplayViewController.swift; sourceTree = "<group>"; };
+		AC5A5B8E1B6FF6A3007A975F /* TimeDisplayButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeDisplayButton.swift; sourceTree = "<group>"; };
 		ACD45AF61B5405BF009B1DC9 /* WeMeet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeMeet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACD45AFA1B5405BF009B1DC9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ACD45AFB1B5405BF009B1DC9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -132,9 +136,10 @@
 				ACD45B1B1B54062F009B1DC9 /* HomeTableViewController.swift */,
 				ACE4F8F11B667A9C005FBE85 /* NewGroupViewController.swift */,
 				ACE4F8F71B67C134005FBE85 /* GroupDisplayViewController.swift */,
+				AC5A5B8C1B6FF645007A975F /* TimeDisplayViewController.swift */,
+				AC5A5B5A1B6BCA4B007A975F /* MemberFilterTableViewController.swift */,
 				AC4E1A491B6958F70090A8E5 /* SelectTimeViewController.swift */,
 				AC4E1A441B694E300090A8E5 /* TimeGridViewController.swift */,
-				AC5A5B5A1B6BCA4B007A975F /* MemberFilterTableViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -164,6 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				AC4E1A471B694FB40090A8E5 /* TimeButton.swift */,
+				AC5A5B8E1B6FF6A3007A975F /* TimeDisplayButton.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -342,12 +348,14 @@
 				AC4E1A4A1B6958F70090A8E5 /* SelectTimeViewController.swift in Sources */,
 				ACE4F8F21B667A9C005FBE85 /* NewGroupViewController.swift in Sources */,
 				AC45E0501B61673E00F99066 /* Group.swift in Sources */,
+				AC5A5B8F1B6FF6A3007A975F /* TimeDisplayButton.swift in Sources */,
 				AC4E1A451B694E300090A8E5 /* TimeGridViewController.swift in Sources */,
 				AC4E1A481B694FB40090A8E5 /* TimeButton.swift in Sources */,
 				ACE4F8F81B67C134005FBE85 /* GroupDisplayViewController.swift in Sources */,
 				AC45E0551B6168D400F99066 /* empty.m in Sources */,
 				ACD45B1C1B54062F009B1DC9 /* HomeTableViewController.swift in Sources */,
 				ACD45AFC1B5405BF009B1DC9 /* AppDelegate.swift in Sources */,
+				AC5A5B8D1B6FF645007A975F /* TimeDisplayViewController.swift in Sources */,
 				AC5A5B5B1B6BCA4B007A975F /* MemberFilterTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

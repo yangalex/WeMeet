@@ -8,8 +8,9 @@
 
 import UIKit
 
-class GroupDisplayViewController: UIViewController, MemberFilterTableViewControllerDelegate {
+class GroupDisplayViewController: UIViewController, MemberFilterTableViewControllerDelegate, TimeDisplayViewControllerDataSource {
     
+    var timeDisplayController: TimeDisplayViewController!
     var currentGroup: Group?
     var timeslots = [Timeslot]()
     var selectedUsers: [PFUser]!
@@ -27,13 +28,8 @@ class GroupDisplayViewController: UIViewController, MemberFilterTableViewControl
         selectTimesButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
         selectTimesButton.titleLabel?.font = UIFont(name: "Helvetica-Bold", size: 18)
         
-//        memberTableView.dataSource = self
-//        memberTableView.delegate = self
         selectedUsers = currentGroup?.users
-        
-        
         loadTimeslots()
-        
     }
     
     
@@ -44,6 +40,8 @@ class GroupDisplayViewController: UIViewController, MemberFilterTableViewControl
         timeQuery?.findObjectsInBackgroundWithBlock { objects, error in
             if let timeslots = objects as? [Timeslot] {
                 self.timeslots = self.matchTimeslots(timeslots, forUsers: self.selectedUsers)
+                self.timeDisplayController.reloadDisplay()
+                    println("=============")
                 for timeslot in self.timeslots {
                     println(timeslot.stringDescription())
                 }
@@ -96,6 +94,10 @@ class GroupDisplayViewController: UIViewController, MemberFilterTableViewControl
         loadTimeslots()
     }
     
+    func timeslotsForDisplay() -> [Timeslot] {
+        return self.timeslots
+    }
+    
     
     // MARK: - Navigation
 
@@ -110,6 +112,10 @@ class GroupDisplayViewController: UIViewController, MemberFilterTableViewControl
             destinationController.users = currentGroup?.users
             destinationController.selectedUsers = self.selectedUsers
             destinationController.delegate = self
+        } else if segue.identifier == "TimeDisplaySegue" {
+            let destinationController = segue.destinationViewController as! TimeDisplayViewController
+            timeDisplayController = destinationController
+            destinationController.dataSource = self
         }
     }
     

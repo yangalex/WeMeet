@@ -9,7 +9,7 @@
 import Foundation
 import Parse
 
-class Timeslot : PFObject {
+class Timeslot : PFObject, Comparable {
     
     @NSManaged var hour: Int
     @NSManaged var isHalf: Bool
@@ -91,6 +91,27 @@ extension Timeslot : PFSubclassing {
             self.registerSubclass()
         }
     }
-    
-    
+}
+
+func <(lhs: Timeslot, rhs: Timeslot) -> Bool {
+    if lhs.hour == rhs.hour {
+        if !lhs.isHalf && rhs.isHalf {
+            return true
+        } else {
+            return false
+        }
+    } else if lhs.hour < rhs.hour {
+        return true
+    } else {
+        return false
+    }
+}
+
+
+func ==(lhs: Timeslot, rhs: Timeslot) -> Bool {
+    if lhs.hour == rhs.hour && lhs.isHalf == rhs.isHalf {
+        return true
+    } else {
+        return false
+    }
 }
