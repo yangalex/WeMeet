@@ -25,7 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         PFUser.enableRevocableSessionInBackground()
         
         var testUser = PFUser()
-        testUser.username = "test"
+        testUser.username = "test3"
         testUser.password = "test"
         
 //        testUser.signUpInBackgroundWithBlock { success, error in

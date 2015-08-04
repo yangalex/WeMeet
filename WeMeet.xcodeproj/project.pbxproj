@@ -29,6 +29,7 @@
 		AC5A5B5B1B6BCA4B007A975F /* MemberFilterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5A5B5A1B6BCA4B007A975F /* MemberFilterTableViewController.swift */; };
 		AC5A5B8D1B6FF645007A975F /* TimeDisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5A5B8C1B6FF645007A975F /* TimeDisplayViewController.swift */; };
 		AC5A5B8F1B6FF6A3007A975F /* TimeDisplayButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5A5B8E1B6FF6A3007A975F /* TimeDisplayButton.swift */; };
+		AC5A5B911B7159D3007A975F /* MembersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5A5B901B7159D3007A975F /* MembersTableViewController.swift */; };
 		ACD45AFC1B5405BF009B1DC9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD45AFB1B5405BF009B1DC9 /* AppDelegate.swift */; };
 		ACD45B011B5405BF009B1DC9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACD45AFF1B5405BF009B1DC9 /* Main.storyboard */; };
 		ACD45B031B5405BF009B1DC9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACD45B021B5405BF009B1DC9 /* Images.xcassets */; };
@@ -73,6 +74,7 @@
 		AC5A5B5A1B6BCA4B007A975F /* MemberFilterTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemberFilterTableViewController.swift; sourceTree = "<group>"; };
 		AC5A5B8C1B6FF645007A975F /* TimeDisplayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeDisplayViewController.swift; sourceTree = "<group>"; };
 		AC5A5B8E1B6FF6A3007A975F /* TimeDisplayButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeDisplayButton.swift; sourceTree = "<group>"; };
+		AC5A5B901B7159D3007A975F /* MembersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MembersTableViewController.swift; sourceTree = "<group>"; };
 		ACD45AF61B5405BF009B1DC9 /* WeMeet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeMeet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACD45AFA1B5405BF009B1DC9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ACD45AFB1B5405BF009B1DC9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 				AC5A5B5A1B6BCA4B007A975F /* MemberFilterTableViewController.swift */,
 				AC4E1A491B6958F70090A8E5 /* SelectTimeViewController.swift */,
 				AC4E1A441B694E300090A8E5 /* TimeGridViewController.swift */,
+				AC5A5B901B7159D3007A975F /* MembersTableViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -354,6 +357,7 @@
 				ACE4F8F81B67C134005FBE85 /* GroupDisplayViewController.swift in Sources */,
 				AC45E0551B6168D400F99066 /* empty.m in Sources */,
 				ACD45B1C1B54062F009B1DC9 /* HomeTableViewController.swift in Sources */,
+				AC5A5B911B7159D3007A975F /* MembersTableViewController.swift in Sources */,
 				ACD45AFC1B5405BF009B1DC9 /* AppDelegate.swift in Sources */,
 				AC5A5B8D1B6FF645007A975F /* TimeDisplayViewController.swift in Sources */,
 				AC5A5B5B1B6BCA4B007A975F /* MemberFilterTableViewController.swift in Sources */,

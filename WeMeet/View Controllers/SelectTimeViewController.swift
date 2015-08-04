@@ -17,7 +17,6 @@ class SelectTimeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
 
     @IBAction func donePressed(sender: AnyObject) {
@@ -48,6 +47,9 @@ class SelectTimeViewController: UIViewController {
         }
     }
     
+    @IBAction func cancelPressed(sender: AnyObject) {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
     
     // MARK: - Navigation
 

@@ -3,6 +3,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--Your Groups-->
@@ -57,10 +58,10 @@
             </objects>
             <point key="canvasLocation" x="-1473" y="-9"/>
         </scene>
-        <!--Title-->
+        <!--Group Display  View Controller-->
         <scene sceneID="KEW-fe-ZK4">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="THZ-L0-olY" customClass="GroupDisplayViewController" customModule="WeMeet" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="THZ-L0-olY" userLabel="Group Display  View Controller" customClass="GroupDisplayViewController" customModule="WeMeet" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="q6B-AU-gc0"/>
                         <viewControllerLayoutGuide type="bottom" id="OVA-y0-JSC"/>
@@ -69,35 +70,89 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2BG-eR-3bp">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="408"/>
-                                <connections>
-                                    <segue destination="FWY-jM-Myj" kind="embed" identifier="TimeDisplaySegue" id="hNO-b7-vfK"/>
-                                </connections>
-                            </containerView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="25v-78-8ng">
-                                <rect key="frame" x="168" y="425" width="264" height="50"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="25v-78-8ng">
+                                <rect key="frame" x="0.0" y="442" width="300" height="50"/>
+                                <color key="backgroundColor" red="0.30588235294117649" green="0.83137254901960778" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="enn-Y1-Aqc"/>
-                                    <constraint firstAttribute="width" constant="264" id="fvC-SP-6OW"/>
+                                    <constraint firstAttribute="height" constant="50" id="wlb-lS-hUL"/>
                                 </constraints>
-                                <state key="normal" title="Select Times">
+                                <state key="normal" title="SELECT TIMES">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <segue destination="hcu-eo-ZCq" kind="presentation" identifier="SelectTimeSegue" id="lCj-Rd-xTR"/>
                                 </connections>
                             </button>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="top" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6RG-2Y-ahm">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="442"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lvJ-Dg-GW9" userLabel="ContentView">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
+                                        <subviews>
+                                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2BG-eR-3bp">
+                                                <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
+                                                <connections>
+                                                    <segue destination="FWY-jM-Myj" kind="embed" identifier="TimeDisplaySegue" id="hNO-b7-vfK"/>
+                                                </connections>
+                                            </containerView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="600" id="06y-F9-cgZ"/>
+                                            <constraint firstAttribute="bottom" secondItem="2BG-eR-3bp" secondAttribute="bottom" id="8yM-d0-mnP"/>
+                                            <constraint firstItem="2BG-eR-3bp" firstAttribute="top" secondItem="lvJ-Dg-GW9" secondAttribute="top" id="ug8-1s-Qa3"/>
+                                            <constraint firstAttribute="trailing" secondItem="2BG-eR-3bp" secondAttribute="trailing" id="vb8-gS-7Au"/>
+                                            <constraint firstItem="2BG-eR-3bp" firstAttribute="leading" secondItem="lvJ-Dg-GW9" secondAttribute="leading" id="z6A-ph-ad4"/>
+                                        </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="06y-F9-cgZ"/>
+                                            </mask>
+                                        </variation>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="lvJ-Dg-GW9" secondAttribute="bottom" id="2U5-Pq-NRm"/>
+                                    <constraint firstAttribute="trailing" secondItem="lvJ-Dg-GW9" secondAttribute="trailing" id="DIU-3f-9Ia"/>
+                                    <constraint firstItem="lvJ-Dg-GW9" firstAttribute="leading" secondItem="6RG-2Y-ahm" secondAttribute="leading" id="Sn8-NV-ZMJ"/>
+                                    <constraint firstItem="lvJ-Dg-GW9" firstAttribute="top" secondItem="6RG-2Y-ahm" secondAttribute="top" id="a0t-UJ-cIx"/>
+                                </constraints>
+                            </scrollView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E87-ji-OIy">
+                                <rect key="frame" x="300" y="442" width="300" height="50"/>
+                                <color key="backgroundColor" red="0.30588235289999999" green="0.83137254900000002" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="uW1-xC-vaC"/>
+                                </constraints>
+                                <state key="normal" title="MEMBERS">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="37m-13-isb" kind="presentation" identifier="MembersSegue" id="5QF-nL-2t0"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="2BG-eR-3bp" firstAttribute="leading" secondItem="xxe-3s-kWn" secondAttribute="leading" id="CLx-9D-6oE"/>
-                            <constraint firstItem="25v-78-8ng" firstAttribute="top" secondItem="2BG-eR-3bp" secondAttribute="bottom" constant="17" id="CvE-s0-i1L"/>
-                            <constraint firstAttribute="trailing" secondItem="2BG-eR-3bp" secondAttribute="trailing" id="SGJ-L6-WAk"/>
-                            <constraint firstAttribute="centerX" secondItem="25v-78-8ng" secondAttribute="centerX" id="U9B-Ez-iF1"/>
-                            <constraint firstItem="OVA-y0-JSC" firstAttribute="top" secondItem="25v-78-8ng" secondAttribute="bottom" constant="17" id="szQ-gR-0uK"/>
-                            <constraint firstItem="2BG-eR-3bp" firstAttribute="top" secondItem="q6B-AU-gc0" secondAttribute="bottom" id="zJi-Xw-g12"/>
+                            <constraint firstAttribute="width" secondItem="E87-ji-OIy" secondAttribute="width" multiplier="0.5" id="1xk-wh-ocG"/>
+                            <constraint firstItem="OVA-y0-JSC" firstAttribute="top" secondItem="25v-78-8ng" secondAttribute="bottom" id="9hi-MK-RZS"/>
+                            <constraint firstItem="E87-ji-OIy" firstAttribute="top" secondItem="6RG-2Y-ahm" secondAttribute="bottom" id="K8F-f9-9Pa"/>
+                            <constraint firstAttribute="trailing" secondItem="E87-ji-OIy" secondAttribute="trailing" id="KTc-jp-q1D"/>
+                            <constraint firstItem="6RG-2Y-ahm" firstAttribute="top" secondItem="q6B-AU-gc0" secondAttribute="bottom" id="LQv-Ry-WbP"/>
+                            <constraint firstAttribute="width" secondItem="lvJ-Dg-GW9" secondAttribute="width" id="Oyt-Hl-R7q"/>
+                            <constraint firstItem="E87-ji-OIy" firstAttribute="leading" secondItem="25v-78-8ng" secondAttribute="trailing" id="VAo-nw-mZS"/>
+                            <constraint firstItem="25v-78-8ng" firstAttribute="width" secondItem="xxe-3s-kWn" secondAttribute="width" multiplier="0.5" id="XJI-Me-2Ev"/>
+                            <constraint firstItem="25v-78-8ng" firstAttribute="leading" secondItem="xxe-3s-kWn" secondAttribute="leading" id="aNZ-Qk-lnN"/>
+                            <constraint firstItem="OVA-y0-JSC" firstAttribute="top" secondItem="E87-ji-OIy" secondAttribute="bottom" id="bfV-TB-zgc"/>
+                            <constraint firstItem="6RG-2Y-ahm" firstAttribute="leading" secondItem="xxe-3s-kWn" secondAttribute="leading" id="cOA-va-7js"/>
+                            <constraint firstAttribute="height" secondItem="lvJ-Dg-GW9" secondAttribute="height" id="eRb-rw-pdq"/>
+                            <constraint firstAttribute="trailing" secondItem="6RG-2Y-ahm" secondAttribute="trailing" id="eTe-Ed-vdH"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="1xk-wh-ocG"/>
+                            </mask>
+                        </variation>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Title" id="Leq-Z5-f7P">
@@ -110,12 +165,13 @@
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="membersButton" destination="E87-ji-OIy" id="7EB-Kg-3b6"/>
                         <outlet property="selectTimesButton" destination="25v-78-8ng" id="D7f-b5-jem"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xkb-xk-lOr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-675" y="9"/>
+            <point key="canvasLocation" x="-367" y="9"/>
         </scene>
         <!--Member Filter Table View Controller-->
         <scene sceneID="VUa-LI-mH2">
@@ -149,7 +205,41 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="laX-pK-Ad8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-647" y="699"/>
+            <point key="canvasLocation" x="-697" y="697"/>
+        </scene>
+        <!--Members Table View Controller-->
+        <scene sceneID="jQj-iQ-bfq">
+            <objects>
+                <tableViewController id="TUd-FY-POK" customClass="MembersTableViewController" customModule="WeMeet" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="5jg-RQ-unF">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MemberCell" id="roe-5e-AQ0">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="roe-5e-AQ0" id="2BW-63-mRL">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="TUd-FY-POK" id="0Vo-3g-4d7"/>
+                            <outlet property="delegate" destination="TUd-FY-POK" id="3hB-lz-kli"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="2N1-0z-dWE">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="Iuk-7F-EOh">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="donePressed:" destination="TUd-FY-POK" id="Qgg-fe-mtP"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7RN-fc-B7C" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="17" y="708"/>
         </scene>
         <!--Time Grid View Controller-->
         <scene sceneID="DcH-ag-vz3">
@@ -167,7 +257,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DJv-Mj-IZf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="54" y="638"/>
+            <point key="canvasLocation" x="670" y="-570"/>
         </scene>
         <!--Select Time View Controller-->
         <scene sceneID="LhS-5Y-ulS">
@@ -196,6 +286,12 @@
                                 </textAttributes>
                                 <items>
                                     <navigationItem title="Select Times" id="Ptl-q4-9ha">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Pfo-G8-wXb">
+                                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                            <connections>
+                                                <action selector="cancelPressed:" destination="hcu-eo-ZCq" id="rOA-BY-2uw"/>
+                                            </connections>
+                                        </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="3k5-wr-OnG">
                                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <connections>
@@ -228,7 +324,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4LY-F7-eZl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="54" y="-66"/>
+            <point key="canvasLocation" x="662" y="22"/>
         </scene>
         <!--New Group View Controller-->
         <scene sceneID="0tO-uU-RCF">
@@ -295,7 +391,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ILv-yb-Sgr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1490" y="740"/>
+            <point key="canvasLocation" x="-1506" y="836"/>
         </scene>
         <!--Main Navigation Controller-->
         <scene sceneID="hbV-l2-qgS">
@@ -339,7 +435,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cCf-lv-uz1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-647" y="1427"/>
+            <point key="canvasLocation" x="-712" y="1351"/>
         </scene>
         <!--Time Display View Controller-->
         <scene sceneID="bUB-hn-y4D">
@@ -350,7 +446,7 @@
                         <viewControllerLayoutGuide type="bottom" id="EQG-Qj-bRD"/>
                     </layoutGuides>
                     <view key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="V2y-VX-kxY">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="408"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -358,7 +454,26 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lc9-ne-JQc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-712" y="-602"/>
+            <point key="canvasLocation" x="-360" y="-610"/>
+        </scene>
+        <!--Members Navigation Controller-->
+        <scene sceneID="Qvb-3N-g4K">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="37m-13-isb" userLabel="Members Navigation Controller" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="epc-0c-YQv">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.33725490200000002" green="0.83137254900000002" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="TUd-FY-POK" kind="relationship" relationship="rootViewController" id="8pg-kj-4l1"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3fy-aB-mZW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="35" y="1394"/>
         </scene>
     </scenes>
 </document>

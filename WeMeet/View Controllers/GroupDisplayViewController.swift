@@ -16,6 +16,8 @@ class GroupDisplayViewController: UIViewController, MemberFilterTableViewControl
     var selectedUsers: [PFUser]!
     
     @IBOutlet weak var selectTimesButton: UIButton!
+    @IBOutlet weak var membersButton: UIButton!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,13 +25,32 @@ class GroupDisplayViewController: UIViewController, MemberFilterTableViewControl
         self.navigationController?.navigationBar.topItem?.backBarButtonItem = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.Plain, target: nil, action: nil)
         self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
         
-        // setup button design
-        selectTimesButton.backgroundColor = UIColor(red: 86/255, green: 212/255, blue: 243/255, alpha: 1.0)
-        selectTimesButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
-        selectTimesButton.titleLabel?.font = UIFont(name: "Helvetica-Bold", size: 18)
+        // setup button designs
+        setUpButtons()
         
         selectedUsers = currentGroup?.users
         loadTimeslots()
+    }
+    
+    func setUpButtons() {
+        let highlightedColor = UIColor(red: 220/255, green: 221/255, blue: 247/255, alpha: 1.0)
+        selectTimesButton.backgroundColor = blueColor
+        selectTimesButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
+        selectTimesButton.setTitleColor(UIColor.whiteColor(), forState: .Highlighted)
+        selectTimesButton.titleLabel?.font = UIFont(name: "Helvetica-Bold", size: 13)
+        selectTimesButton.setBackgroundColor(highlightedColor, forUIControlState: UIControlState.Highlighted)
+        
+        membersButton.backgroundColor = blueColor
+        membersButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
+        membersButton.setTitleColor(UIColor.whiteColor(), forState: .Highlighted)
+        membersButton.titleLabel?.font = UIFont(name: "Helvetica-Bold", size: 13)
+        membersButton.setBackgroundColor(highlightedColor, forUIControlState: .Highlighted)
+        
+        // mini divisor
+        var divisor = CALayer()
+        divisor.frame = CGRectMake(0, membersButton.frame.height/4, 1, membersButton.frame.height/2)
+        divisor.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1.0).CGColor
+        membersButton.layer.addSublayer(divisor)
     }
     
     
@@ -40,6 +61,7 @@ class GroupDisplayViewController: UIViewController, MemberFilterTableViewControl
         timeQuery?.findObjectsInBackgroundWithBlock { objects, error in
             if let timeslots = objects as? [Timeslot] {
                 self.timeslots = self.matchTimeslots(timeslots, forUsers: self.selectedUsers)
+                self.timeslots.sort({$0 < $1})
                 self.timeDisplayController.reloadDisplay()
                     println("=============")
                 for timeslot in self.timeslots {
@@ -88,7 +110,6 @@ class GroupDisplayViewController: UIViewController, MemberFilterTableViewControl
         return intersection
     }
     
-    
     func didFinishFilteringUsers(selectedUsers: [PFUser]) {
         self.selectedUsers = selectedUsers
         loadTimeslots()
@@ -116,10 +137,47 @@ class GroupDisplayViewController: UIViewController, MemberFilterTableViewControl
             let destinationController = segue.destinationViewController as! TimeDisplayViewController
             timeDisplayController = destinationController
             destinationController.dataSource = self
+        } else if segue.identifier == "MembersSegue" {
+            let destinationNavigationController = segue.destinationViewController as! UINavigationController
+            let destinationController = destinationNavigationController.topViewController as! MembersTableViewController
+            
+            destinationController.currentGroup = self.currentGroup
         }
     }
     
 
+}
+
+extension UIButton {
+    private func imageWithColor(color: UIColor) -> UIImage {
+        let rect = CGRectMake(0.0, 0.0, 1.0, 1.0)
+        UIGraphicsBeginImageContext(rect.size)
+        let context = UIGraphicsGetCurrentContext()
+        
+        CGContextSetFillColorWithColor(context, color.CGColor)
+        CGContextFillRect(context, rect)
+        
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return image
+    }
+    
+    func setBackgroundColor(color: UIColor, forUIControlState state: UIControlState) {
+        self.setBackgroundImage(imageWithColor(color), forState: state)
+    }
+    
+    public override func pointInside(point: CGPoint, withEvent event: UIEvent?) -> Bool {
+        
+        var inside = super.pointInside(point, withEvent: event)
+        
+        if inside != highlighted && event?.type == .Touches {
+            highlighted = inside
+        }
+        
+        return inside
+        
+    }
 }
 
 /*
