@@ -7,43 +7,111 @@
 //
 
 import UIKit
+import SVProgressHUD
+
+protocol SelectTimeViewControllerDelegate {
+    func didFinishUpdatingTimeslots(success: Bool)
+}
 
 class SelectTimeViewController: UIViewController {
 
     @IBOutlet weak var containerView: UIView!
     
+    var delegate: SelectTimeViewControllerDelegate?
     var timeGrid: TimeGridViewController!
     var currentGroup: Group?
+    var selectedTimeslots: [Timeslot]!
+    
+    var saveSuccess: Bool?
+    var deleteSuccess: Bool?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        loadCurrentUserTimeslots()
     }
+    
+    func loadCurrentUserTimeslots() {
+        SVProgressHUD.show()
+        UIApplication.sharedApplication().beginIgnoringInteractionEvents()
+        var timeQuery = Timeslot.query()
+        timeQuery?.whereKey("user", equalTo: PFUser.currentUser()!)
+        timeQuery?.whereKey("group", equalTo: currentGroup!)
+        timeQuery?.findObjectsInBackgroundWithBlock { objects, error in
+            if error == nil {
+                if let timeslots = objects as? [Timeslot] {
+                    self.selectedTimeslots = timeslots
+                    self.selectedTimeslots.sort({$0 < $1})
+                }
+            } else {
+                self.dismissViewControllerAnimated(true, completion: nil)
+                AlertControllerHelper.displayErrorController(self.presentingViewController!, withMessage: "Unable to retrieve timeslots")
+            }
+            UIApplication.sharedApplication().endIgnoringInteractionEvents()
+            SVProgressHUD.dismiss()
+        }
+    }
+    
 
     @IBAction func donePressed(sender: AnyObject) {
-        var selectedTimeslots = [Timeslot]()
+        // todo: modify function so it doesn't append a timeslot that was already in the selectedtimeslots
+        // and removes any that are not in the selected timeslots anymore
+        var updatedSelectedTimeslots = [Timeslot]()
         for button in timeGrid.view.subviews {
             if let timeButton = button as? TimeButton {
                 if timeButton.selected == true {
                     let newTimeslot = Timeslot.fromString(timeButton.titleLabel!.text!)
                     newTimeslot.user = PFUser.currentUser()!
                     newTimeslot.group = currentGroup!
-                    selectedTimeslots.append(newTimeslot)
+                    updatedSelectedTimeslots.append(newTimeslot)
                 }
             }
         }
         
-        self.saveTimeslots(selectedTimeslots)
-        dismissViewControllerAnimated(true, completion: nil)
+        self.saveTimeslots(updatedSelectedTimeslots)
     }
     
-    func saveTimeslots(timeslots: [Timeslot]) {
-        for timeslot in timeslots {
-            timeslot.saveInBackgroundWithBlock { success, error in
-                if success {
-                } else {
-                    println("\(error?.localizedDescription)")
-                }
+    func saveTimeslots(updatedTimeslots: [Timeslot]) {
+        SVProgressHUD.showWithStatus("Saving")
+        UIApplication.sharedApplication().beginIgnoringInteractionEvents()
+        // remove timeslots that are now unselected
+        var deletedTimeslots = [Timeslot]()
+        for timeslot in selectedTimeslots {
+            if !contains(updatedTimeslots, timeslot) {
+                deletedTimeslots.append(timeslot)
             }
+        }
+       
+        // add any new timeslot
+        var newTimeslots = [Timeslot]()
+        for timeslot in updatedTimeslots {
+            if !contains(selectedTimeslots, timeslot) {
+                newTimeslots.append(timeslot)
+            }
+        }
+        
+        // asynchronously delete and save
+        PFObject.deleteAllInBackground(deletedTimeslots) { success, error in
+            if success {
+                PFObject.saveAllInBackground(newTimeslots) { success, error in
+                    if success {
+                        self.delegate?.didFinishUpdatingTimeslots(true)
+                        SVProgressHUD.showSuccessWithStatus("Saved timeslots")
+                        NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "cancelPressed:", userInfo: nil, repeats: false)
+                    } else {
+                        self.delegate?.didFinishUpdatingTimeslots(false)
+                        SVProgressHUD.showErrorWithStatus("Failed to save time")
+                        NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "cancelPressed:", userInfo: nil, repeats: false)
+                    }
+                    
+                    UIApplication.sharedApplication().endIgnoringInteractionEvents()
+                }
+            } else {
+                self.delegate?.didFinishUpdatingTimeslots(false)
+                SVProgressHUD.showErrorWithStatus("Failed to update time")
+                NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "cancelPressed:", userInfo: nil, repeats: false)
+                UIApplication.sharedApplication().endIgnoringInteractionEvents()
+            }
+            
         }
     }
     

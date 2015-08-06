@@ -14,16 +14,22 @@ class MembersTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        users = currentGroup?.users
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    override func viewWillAppear(animated: Bool) {
+        users = currentGroup?.users
+        tableView.reloadData()
     }
 
     @IBAction func donePressed(sender: AnyObject) {
         dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "AddMemberSegue" {
+            let destinationController = segue.destinationViewController as! AddMemberViewController
+            destinationController.currentGroup = self.currentGroup
+        }
     }
     
     
@@ -49,13 +55,19 @@ class MembersTableViewController: UITableViewController {
             cell.textLabel?.text = "Add Member"
             return cell
         } else {
+            cell.textLabel?.textColor = UIColor.blackColor()
             cell.textLabel?.text = users[indexPath.row].username
+            cell.selectionStyle = .None
             return cell
         }
 
     }
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        if indexPath.row == users.count {
+            // code to add member
+            performSegueWithIdentifier("AddMemberSegue", sender: self)
+        }
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
 }

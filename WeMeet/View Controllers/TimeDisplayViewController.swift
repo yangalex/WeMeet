@@ -8,8 +8,6 @@
 
 import UIKit
 
-let greenColor = UIColor(red:156/255, green:205/255, blue:78/255, alpha:1.0)
-
 protocol TimeDisplayViewControllerDataSource {
     func timeslotsForDisplay() -> [Timeslot]
 }
@@ -55,6 +53,7 @@ class TimeDisplayViewController: UIViewController {
             if startOfCluster == -1 {
                 startOfCluster = fromTimeToIndex(selectedTimeslots[i])
                 if i == selectedTimeslots.count-1 {
+                    println("last timeslot \(selectedTimeslots[i].stringDescription())")
                     endOfCluster = fromTimeToIndex(selectedTimeslots[i])
                     highlightFrom(startOfCluster, endIndex: endOfCluster)
                 }
@@ -64,6 +63,10 @@ class TimeDisplayViewController: UIViewController {
                     highlightFrom(startOfCluster, endIndex: endOfCluster)
                     startOfCluster = fromTimeToIndex(selectedTimeslots[i])
                     endOfCluster = -1
+                    if i == selectedTimeslots.count-1 {
+                        endOfCluster = fromTimeToIndex(selectedTimeslots[i])
+                        highlightFrom(startOfCluster, endIndex: endOfCluster)
+                    }
                 } else {
                     if i == selectedTimeslots.count-1 {
                         endOfCluster = fromTimeToIndex(selectedTimeslots[i])
@@ -109,8 +112,9 @@ class TimeDisplayViewController: UIViewController {
             }
             
             // handle neighboring edges
-            if endIndex - startIndex == 1 && buttonsArray[startIndex].timeState == TimeDisplayButton.TimeState.Edge && buttonsArray[endIndex].timeState == TimeDisplayButton.TimeState.Edge {
+            if endIndex - startIndex == 1 && buttonsArray[startIndex].timeState == TimeDisplayButton.TimeDisplayState.Edge && buttonsArray[endIndex].timeState == TimeDisplayButton.TimeDisplayState.Edge {
                 var fillerRect = UIView(frame: CGRectMake(buttonsArray[startIndex].frame.origin.x+BUTTON_SIZE, buttonsArray[startIndex].frame.origin.y, spacing-BUTTON_SIZE, BUTTON_SIZE))
+                fillerRect.tag = 15
                 fillerRect.backgroundColor = greenColor
                 view.addSubview(fillerRect)
             }

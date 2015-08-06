@@ -9,6 +9,7 @@
 import UIKit
 import Parse
 import Bolts
+import SVProgressHUD
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -20,6 +21,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.LightContent
         UINavigationBar.appearance().setBackgroundImage(UIImage(named: "NavBackground"), forBarMetrics: UIBarMetrics.Default)
+        
+        SVProgressHUD.setForegroundColor(blueColor)
         
         Parse.setApplicationId("Qxt2lgULCKkQyBdvTRP2LPcPRzfzUZnTYjCY7txF", clientKey:"wOSYQC2Lcrc4dOZLKR91VdYMzugT5qWNJtLL02Hp")
         PFUser.enableRevocableSessionInBackground()

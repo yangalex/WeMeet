@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import SVProgressHUD
 
-class GroupDisplayViewController: UIViewController, MemberFilterTableViewControllerDelegate, TimeDisplayViewControllerDataSource {
+class GroupDisplayViewController: UIViewController, MemberFilterTableViewControllerDelegate, TimeDisplayViewControllerDataSource, SelectTimeViewControllerDelegate {
     
     var timeDisplayController: TimeDisplayViewController!
     var currentGroup: Group?
@@ -21,15 +22,19 @@ class GroupDisplayViewController: UIViewController, MemberFilterTableViewControl
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.title = currentGroup?.name
-        self.navigationController?.navigationBar.topItem?.backBarButtonItem = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.Plain, target: nil, action: nil)
-        self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
+        setupNavigationItems()
         
         // setup button designs
         setUpButtons()
         
         selectedUsers = currentGroup?.users
         loadTimeslots()
+    }
+    
+    func setupNavigationItems() {
+        self.navigationItem.title = currentGroup?.name
+        self.navigationController?.navigationBar.topItem?.backBarButtonItem = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.Plain, target: nil, action: nil)
+        self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
     }
     
     func setUpButtons() {
@@ -58,15 +63,21 @@ class GroupDisplayViewController: UIViewController, MemberFilterTableViewControl
         var timeQuery = Timeslot.query()
         timeQuery?.whereKey("group", equalTo: currentGroup!)
         
+        SVProgressHUD.show()
         timeQuery?.findObjectsInBackgroundWithBlock { objects, error in
-            if let timeslots = objects as? [Timeslot] {
-                self.timeslots = self.matchTimeslots(timeslots, forUsers: self.selectedUsers)
-                self.timeslots.sort({$0 < $1})
-                self.timeDisplayController.reloadDisplay()
-                    println("=============")
-                for timeslot in self.timeslots {
-                    println(timeslot.stringDescription())
+            if error != nil {
+                SVProgressHUD.showErrorWithStatus("Failed to load times")
+            } else {
+                if let timeslots = objects as? [Timeslot] {
+                    self.timeslots = self.matchTimeslots(timeslots, forUsers: self.selectedUsers)
+                    self.timeslots.sort({$0 < $1})
+                    self.timeDisplayController.reloadDisplay()
+    //                    println("=============")
+    //                for timeslot in self.timeslots {
+    //                    println(timeslot.stringDescription())
+    //                }
                 }
+                SVProgressHUD.dismiss()
             }
         }
     }
@@ -119,6 +130,11 @@ class GroupDisplayViewController: UIViewController, MemberFilterTableViewControl
         return self.timeslots
     }
     
+    func didFinishUpdatingTimeslots(success: Bool) {
+        if success {
+            loadTimeslots()
+        }
+    }
     
     // MARK: - Navigation
 
@@ -126,6 +142,7 @@ class GroupDisplayViewController: UIViewController, MemberFilterTableViewControl
         if segue.identifier == "SelectTimeSegue" {
             let destinationController = segue.destinationViewController as! SelectTimeViewController
             destinationController.currentGroup = self.currentGroup
+            destinationController.delegate = self
         } else if segue.identifier == "FilterSegue" {
             let destinationNavigationController = segue.destinationViewController as! UINavigationController
             let destinationController = destinationNavigationController.topViewController as! MemberFilterTableViewController
@@ -167,17 +184,17 @@ extension UIButton {
         self.setBackgroundImage(imageWithColor(color), forState: state)
     }
     
-    public override func pointInside(point: CGPoint, withEvent event: UIEvent?) -> Bool {
-        
-        var inside = super.pointInside(point, withEvent: event)
-        
-        if inside != highlighted && event?.type == .Touches {
-            highlighted = inside
-        }
-        
-        return inside
-        
-    }
+//    public override func pointInside(point: CGPoint, withEvent event: UIEvent?) -> Bool {
+//        
+//        var inside = super.pointInside(point, withEvent: event)
+//        
+//        if inside != highlighted && event?.type == .Touches {
+//            highlighted = inside
+//        }
+//        
+//        return inside
+//        
+//    }
 }
 
 /*

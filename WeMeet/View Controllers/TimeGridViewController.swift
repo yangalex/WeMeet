@@ -17,6 +17,7 @@ let leftEdgeIndexes = [0, 6, 12, 18, 24, 30, 36, 42]
 let rightEdgeIndexes = [5, 11, 17, 23, 29, 35, 41, 47]
 
 let buttonColor = UIColor(red: 180/255, green: 180/255, blue: 180/255, alpha: 1.0)
+let greenColor = UIColor(red:156/255, green:205/255, blue:78/255, alpha:1.0)
 let blueColor = UIColor(red: 86/255, green: 212/255, blue: 243/255, alpha: 1.0)
 
 class TimeGridViewController: UIViewController {
@@ -41,7 +42,7 @@ class TimeGridViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         loadButtons()
-
+        
     }
     
     func loadButtons() {
