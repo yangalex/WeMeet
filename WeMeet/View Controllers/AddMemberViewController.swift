@@ -36,6 +36,9 @@ class AddMemberViewController: UIViewController {
         if segue.identifier == "ByUsernameSegue" {
             let destinationController = segue.destinationViewController as! ByUsernameViewController
             destinationController.currentGroup = self.currentGroup
+        } else if segue.identifier == "ShowAddressBookSegue" {
+            let destinationController = segue.destinationViewController as! AddressBookTableViewController
+            destinationController.currentGroup = self.currentGroup
         }
     }
 
@@ -65,15 +68,13 @@ extension AddMemberViewController: UITableViewDelegate, UITableViewDataSource {
         if indexPath.row == 0 {
             performSegueWithIdentifier("ByUsernameSegue", sender: self)
         } else if indexPath.row == 1 {    // Add from address book
-            
+            performSegueWithIdentifier("ShowAddressBookSegue", sender: self)
         }
         
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
     
 }
-
-
 
 
 

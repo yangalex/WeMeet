@@ -15,44 +15,22 @@ import SVProgressHUD
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var storyboard: UIStoryboard?
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        // set status bar and navigation bar styles for app
         UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.LightContent
+        UINavigationBar.appearance().barStyle = UIBarStyle.Black
+        UINavigationBar.appearance().tintColor = UIColor.whiteColor()
         UINavigationBar.appearance().setBackgroundImage(UIImage(named: "NavBackground"), forBarMetrics: UIBarMetrics.Default)
+        UINavigationBar.appearance().shadowImage = UIImage()
         
         SVProgressHUD.setForegroundColor(blueColor)
         
         Parse.setApplicationId("Qxt2lgULCKkQyBdvTRP2LPcPRzfzUZnTYjCY7txF", clientKey:"wOSYQC2Lcrc4dOZLKR91VdYMzugT5qWNJtLL02Hp")
         PFUser.enableRevocableSessionInBackground()
-        
-        var testUser = PFUser()
-        testUser.username = "test3"
-        testUser.password = "test"
-        
-//        testUser.signUpInBackgroundWithBlock { success, error in
-//            if success {
-//                println("successfully signed up test user")
-//            } else {
-//                println("error signing up user: \(error?.localizedDescription)")
-//            }
-//            
-//        }
-        
-        if PFUser.currentUser() == nil || PFUser.currentUser()!.username != testUser.username {
-            PFUser.logInWithUsernameInBackground(testUser.username!, password: testUser.password!) { user, error in
-                if user != nil {
-                    println("successfully logged in user \(PFUser.currentUser()!.username!)")
-                } else {
-                    println("error logging in")
-                }
-                
-            }
-        } else {
-            println("user \(PFUser.currentUser()!.username!) already logged in")
-        }
-        
         
         return true
     }

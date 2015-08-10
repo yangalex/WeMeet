@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		80EDF0B060FB4595E0C76D76 /* Pods_WeMeet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BC798F3807628D72B82585E /* Pods_WeMeet.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		AC0F6AEE1B77076100BC3DC4 /* ContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0F6AED1B77076100BC3DC4 /* ContactCell.swift */; };
+		AC0F6AF21B77E7D300BC3DC4 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0F6AF11B77E7D300BC3DC4 /* LoginViewController.swift */; };
+		AC0F6AF41B78F90E00BC3DC4 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0F6AF31B78F90E00BC3DC4 /* SignUpViewController.swift */; };
 		AC45E0351B613F2C00F99066 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC45E0331B613F2C00F99066 /* Bolts.framework */; };
 		AC45E0361B613F2C00F99066 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC45E0341B613F2C00F99066 /* Parse.framework */; };
 		AC45E0381B613F9E00F99066 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC45E0371B613F9E00F99066 /* AudioToolbox.framework */; };
@@ -34,6 +37,9 @@
 		AC5A5BC81B726867007A975F /* AddMemberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5A5BC71B726867007A975F /* AddMemberViewController.swift */; };
 		AC5A5BCA1B729210007A975F /* ByUsernameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5A5BC91B729210007A975F /* ByUsernameViewController.swift */; };
 		AC5A5BCC1B73BB85007A975F /* AlertControllerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5A5BCB1B73BB85007A975F /* AlertControllerHelper.swift */; };
+		AC89429D1B75080A005D0A3D /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC89429B1B75080A005D0A3D /* AddressBook.framework */; };
+		AC89429E1B75080A005D0A3D /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC89429C1B75080A005D0A3D /* AddressBookUI.framework */; };
+		ACB1E9951B75518800426914 /* AddressBookTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB1E9941B75518800426914 /* AddressBookTableViewController.swift */; };
 		ACD45AFC1B5405BF009B1DC9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD45AFB1B5405BF009B1DC9 /* AppDelegate.swift */; };
 		ACD45B011B5405BF009B1DC9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACD45AFF1B5405BF009B1DC9 /* Main.storyboard */; };
 		ACD45B031B5405BF009B1DC9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACD45B021B5405BF009B1DC9 /* Images.xcassets */; };
@@ -58,6 +64,9 @@
 /* Begin PBXFileReference section */
 		3BC798F3807628D72B82585E /* Pods_WeMeet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeMeet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7EE2410F5C6DF26298049031 /* Pods-WeMeet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeMeet.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WeMeet/Pods-WeMeet.debug.xcconfig"; sourceTree = "<group>"; };
+		AC0F6AED1B77076100BC3DC4 /* ContactCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactCell.swift; sourceTree = "<group>"; };
+		AC0F6AF11B77E7D300BC3DC4 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		AC0F6AF31B78F90E00BC3DC4 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		AC45E0331B613F2C00F99066 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		AC45E0341B613F2C00F99066 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		AC45E0371B613F9E00F99066 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -84,6 +93,9 @@
 		AC5A5BC71B726867007A975F /* AddMemberViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddMemberViewController.swift; sourceTree = "<group>"; };
 		AC5A5BC91B729210007A975F /* ByUsernameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ByUsernameViewController.swift; sourceTree = "<group>"; };
 		AC5A5BCB1B73BB85007A975F /* AlertControllerHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertControllerHelper.swift; sourceTree = "<group>"; };
+		AC89429B1B75080A005D0A3D /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		AC89429C1B75080A005D0A3D /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
+		ACB1E9941B75518800426914 /* AddressBookTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddressBookTableViewController.swift; sourceTree = "<group>"; };
 		ACD45AF61B5405BF009B1DC9 /* WeMeet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeMeet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACD45AFA1B5405BF009B1DC9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ACD45AFB1B5405BF009B1DC9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -106,6 +118,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC89429D1B75080A005D0A3D /* AddressBook.framework in Frameworks */,
+				AC89429E1B75080A005D0A3D /* AddressBookUI.framework in Frameworks */,
 				AC45E04E1B613FD200F99066 /* Accounts.framework in Frameworks */,
 				AC45E04A1B613FCB00F99066 /* libsqlite3.dylib in Frameworks */,
 				ACE4F8EF1B657869005FBE85 /* ParseUI.framework in Frameworks */,
@@ -137,6 +151,8 @@
 		1C58C2E6C5ADC0D0505F55F0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AC89429B1B75080A005D0A3D /* AddressBook.framework */,
+				AC89429C1B75080A005D0A3D /* AddressBookUI.framework */,
 				3BC798F3807628D72B82585E /* Pods_WeMeet.framework */,
 			);
 			name = Frameworks;
@@ -154,6 +170,8 @@
 		AC45E0311B613F0900F99066 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				AC0F6AF11B77E7D300BC3DC4 /* LoginViewController.swift */,
+				AC0F6AF31B78F90E00BC3DC4 /* SignUpViewController.swift */,
 				ACD45B1B1B54062F009B1DC9 /* HomeTableViewController.swift */,
 				ACE4F8F11B667A9C005FBE85 /* NewGroupViewController.swift */,
 				ACE4F8F71B67C134005FBE85 /* GroupDisplayViewController.swift */,
@@ -164,6 +182,7 @@
 				AC5A5B901B7159D3007A975F /* MembersTableViewController.swift */,
 				AC5A5BC71B726867007A975F /* AddMemberViewController.swift */,
 				AC5A5BC91B729210007A975F /* ByUsernameViewController.swift */,
+				ACB1E9941B75518800426914 /* AddressBookTableViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -194,6 +213,7 @@
 			children = (
 				AC5A5BC51B71645F007A975F /* TimeButton.swift */,
 				AC5A5BC31B716433007A975F /* TimeDisplayButton.swift */,
+				AC0F6AED1B77076100BC3DC4 /* ContactCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -432,17 +452,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				AC45E05E1B656B5F00F99066 /* Timeslot.swift in Sources */,
+				ACB1E9951B75518800426914 /* AddressBookTableViewController.swift in Sources */,
 				AC5A5BC81B726867007A975F /* AddMemberViewController.swift in Sources */,
 				AC4E1A4A1B6958F70090A8E5 /* SelectTimeViewController.swift in Sources */,
 				AC5A5BCA1B729210007A975F /* ByUsernameViewController.swift in Sources */,
 				ACE4F8F21B667A9C005FBE85 /* NewGroupViewController.swift in Sources */,
 				AC45E0501B61673E00F99066 /* Group.swift in Sources */,
 				AC5A5BC61B71645F007A975F /* TimeButton.swift in Sources */,
+				AC0F6AF21B77E7D300BC3DC4 /* LoginViewController.swift in Sources */,
 				AC5A5BC41B716433007A975F /* TimeDisplayButton.swift in Sources */,
+				AC0F6AEE1B77076100BC3DC4 /* ContactCell.swift in Sources */,
 				AC4E1A451B694E300090A8E5 /* TimeGridViewController.swift in Sources */,
 				ACE4F8F81B67C134005FBE85 /* GroupDisplayViewController.swift in Sources */,
 				AC45E0551B6168D400F99066 /* empty.m in Sources */,
 				AC5A5BCC1B73BB85007A975F /* AlertControllerHelper.swift in Sources */,
+				AC0F6AF41B78F90E00BC3DC4 /* SignUpViewController.swift in Sources */,
 				ACD45B1C1B54062F009B1DC9 /* HomeTableViewController.swift in Sources */,
 				AC5A5B911B7159D3007A975F /* MembersTableViewController.swift in Sources */,
 				ACD45AFC1B5405BF009B1DC9 /* AppDelegate.swift in Sources */,

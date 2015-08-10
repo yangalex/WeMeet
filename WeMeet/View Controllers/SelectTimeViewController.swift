@@ -94,25 +94,29 @@ class SelectTimeViewController: UIViewController {
             if success {
                 PFObject.saveAllInBackground(newTimeslots) { success, error in
                     if success {
-                        self.delegate?.didFinishUpdatingTimeslots(true)
                         SVProgressHUD.showSuccessWithStatus("Saved timeslots")
-                        NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "cancelPressed:", userInfo: nil, repeats: false)
+                        NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "dismissAfterUpdating:", userInfo: true, repeats: false)
                     } else {
-                        self.delegate?.didFinishUpdatingTimeslots(false)
                         SVProgressHUD.showErrorWithStatus("Failed to save time")
-                        NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "cancelPressed:", userInfo: nil, repeats: false)
+                        NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "dismissAfterUpdating:", userInfo: false, repeats: false)
                     }
                     
                     UIApplication.sharedApplication().endIgnoringInteractionEvents()
                 }
             } else {
-                self.delegate?.didFinishUpdatingTimeslots(false)
                 SVProgressHUD.showErrorWithStatus("Failed to update time")
-                NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "cancelPressed:", userInfo: nil, repeats: false)
+                NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "dismissAfterUpdating:", userInfo: false, repeats: false)
+                
                 UIApplication.sharedApplication().endIgnoringInteractionEvents()
             }
             
         }
+    }
+   
+    func dismissAfterUpdating(timer: NSTimer) {
+        dismissViewControllerAnimated(true, completion: nil)
+        let success = timer.userInfo as? Bool
+        self.delegate?.didFinishUpdatingTimeslots(success!)
     }
     
     @IBAction func cancelPressed(sender: AnyObject) {

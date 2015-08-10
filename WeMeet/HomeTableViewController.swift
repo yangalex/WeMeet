@@ -18,7 +18,7 @@ class HomeTableViewController: UITableViewController, NewGroupViewControllerDele
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.navigationItem.hidesBackButton = true
         loadGroups()
        
     }
