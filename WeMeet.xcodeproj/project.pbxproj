@@ -11,6 +11,10 @@
 		AC0F6AEE1B77076100BC3DC4 /* ContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0F6AED1B77076100BC3DC4 /* ContactCell.swift */; };
 		AC0F6AF21B77E7D300BC3DC4 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0F6AF11B77E7D300BC3DC4 /* LoginViewController.swift */; };
 		AC0F6AF41B78F90E00BC3DC4 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0F6AF31B78F90E00BC3DC4 /* SignUpViewController.swift */; };
+		AC0F6AF61B79313B00BC3DC4 /* PhoneVerifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0F6AF51B79313B00BC3DC4 /* PhoneVerifyViewController.swift */; };
+		AC0F6B441B7CEA6800BC3DC4 /* DatesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0F6B431B7CEA6800BC3DC4 /* DatesTableViewController.swift */; };
+		AC0F6B481B7D13CC00BC3DC4 /* TimeDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0F6B471B7D13CC00BC3DC4 /* TimeDate.swift */; };
+		AC0F6B781B7D1FF100BC3DC4 /* NewDateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0F6B771B7D1FF100BC3DC4 /* NewDateViewController.swift */; };
 		AC45E0351B613F2C00F99066 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC45E0331B613F2C00F99066 /* Bolts.framework */; };
 		AC45E0361B613F2C00F99066 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC45E0341B613F2C00F99066 /* Parse.framework */; };
 		AC45E0381B613F9E00F99066 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC45E0371B613F9E00F99066 /* AudioToolbox.framework */; };
@@ -67,6 +71,10 @@
 		AC0F6AED1B77076100BC3DC4 /* ContactCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactCell.swift; sourceTree = "<group>"; };
 		AC0F6AF11B77E7D300BC3DC4 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		AC0F6AF31B78F90E00BC3DC4 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		AC0F6AF51B79313B00BC3DC4 /* PhoneVerifyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhoneVerifyViewController.swift; sourceTree = "<group>"; };
+		AC0F6B431B7CEA6800BC3DC4 /* DatesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatesTableViewController.swift; sourceTree = "<group>"; };
+		AC0F6B471B7D13CC00BC3DC4 /* TimeDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeDate.swift; sourceTree = "<group>"; };
+		AC0F6B771B7D1FF100BC3DC4 /* NewDateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewDateViewController.swift; sourceTree = "<group>"; };
 		AC45E0331B613F2C00F99066 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		AC45E0341B613F2C00F99066 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		AC45E0371B613F9E00F99066 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -163,6 +171,7 @@
 			children = (
 				AC45E04F1B61673E00F99066 /* Group.swift */,
 				AC45E05D1B656B5F00F99066 /* Timeslot.swift */,
+				AC0F6B471B7D13CC00BC3DC4 /* TimeDate.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -172,8 +181,11 @@
 			children = (
 				AC0F6AF11B77E7D300BC3DC4 /* LoginViewController.swift */,
 				AC0F6AF31B78F90E00BC3DC4 /* SignUpViewController.swift */,
+				AC0F6AF51B79313B00BC3DC4 /* PhoneVerifyViewController.swift */,
 				ACD45B1B1B54062F009B1DC9 /* HomeTableViewController.swift */,
 				ACE4F8F11B667A9C005FBE85 /* NewGroupViewController.swift */,
+				AC0F6B431B7CEA6800BC3DC4 /* DatesTableViewController.swift */,
+				AC0F6B771B7D1FF100BC3DC4 /* NewDateViewController.swift */,
 				ACE4F8F71B67C134005FBE85 /* GroupDisplayViewController.swift */,
 				AC5A5B8C1B6FF645007A975F /* TimeDisplayViewController.swift */,
 				AC5A5B5A1B6BCA4B007A975F /* MemberFilterTableViewController.swift */,
@@ -457,8 +469,11 @@
 				AC4E1A4A1B6958F70090A8E5 /* SelectTimeViewController.swift in Sources */,
 				AC5A5BCA1B729210007A975F /* ByUsernameViewController.swift in Sources */,
 				ACE4F8F21B667A9C005FBE85 /* NewGroupViewController.swift in Sources */,
+				AC0F6AF61B79313B00BC3DC4 /* PhoneVerifyViewController.swift in Sources */,
 				AC45E0501B61673E00F99066 /* Group.swift in Sources */,
 				AC5A5BC61B71645F007A975F /* TimeButton.swift in Sources */,
+				AC0F6B781B7D1FF100BC3DC4 /* NewDateViewController.swift in Sources */,
+				AC0F6B441B7CEA6800BC3DC4 /* DatesTableViewController.swift in Sources */,
 				AC0F6AF21B77E7D300BC3DC4 /* LoginViewController.swift in Sources */,
 				AC5A5BC41B716433007A975F /* TimeDisplayButton.swift in Sources */,
 				AC0F6AEE1B77076100BC3DC4 /* ContactCell.swift in Sources */,
@@ -471,6 +486,7 @@
 				AC5A5B911B7159D3007A975F /* MembersTableViewController.swift in Sources */,
 				ACD45AFC1B5405BF009B1DC9 /* AppDelegate.swift in Sources */,
 				AC5A5B8D1B6FF645007A975F /* TimeDisplayViewController.swift in Sources */,
+				AC0F6B481B7D13CC00BC3DC4 /* TimeDate.swift in Sources */,
 				AC5A5B5B1B6BCA4B007A975F /* MemberFilterTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

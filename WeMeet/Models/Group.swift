@@ -12,6 +12,7 @@ import Parse
 class Group : PFObject {
     @NSManaged var name: String
     @NSManaged var users: [PFUser]
+    @NSManaged var dayOfWeekOnly: Bool
     
     override init() {
         super.init()

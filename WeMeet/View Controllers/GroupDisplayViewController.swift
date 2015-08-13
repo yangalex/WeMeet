@@ -31,6 +31,7 @@ class GroupDisplayViewController: UIViewController, MemberFilterTableViewControl
         loadTimeslots()
     }
     
+    
     func setupNavigationItems() {
         self.navigationItem.title = currentGroup?.name
         self.navigationController?.navigationBar.topItem?.backBarButtonItem = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.Plain, target: nil, action: nil)

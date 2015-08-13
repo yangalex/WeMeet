@@ -15,6 +15,8 @@ protocol NewGroupViewControllerDelegate {
 class NewGroupViewController: UIViewController {
 
     @IBOutlet weak var groupNameTextField: UITextField!
+    @IBOutlet weak var groupTypeControl: UISegmentedControl!
+    
     var delegate: NewGroupViewControllerDelegate?
     
     override func viewDidLoad() {
@@ -45,6 +47,14 @@ class NewGroupViewController: UIViewController {
     @IBAction func createButtonPressed(sender: UIBarButtonItem) {
         if groupNameTextField.text != "" {
             var newGroup = Group(name: groupNameTextField.text)
+            
+            // set type of group
+            if groupTypeControl.selectedSegmentIndex == 1 {
+                newGroup.dayOfWeekOnly = true
+            } else {
+                newGroup.dayOfWeekOnly = false
+            }
+            
             newGroup.users.append(PFUser.currentUser()!)
             newGroup.saveInBackgroundWithBlock { success, error in
                 if success {

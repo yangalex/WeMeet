@@ -38,7 +38,7 @@ class MemberFilterTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("MemberCheckCell", forIndexPath: indexPath) as! UITableViewCell
         
-        cell.textLabel?.text = users[indexPath.row].username
+        cell.textLabel?.text = users[indexPath.row].objectForKey("name") as? String ?? "[No name]"
         // check for selected users
         if contains(selectedUsers!, users[indexPath.row]) {
             cell.accessoryType = UITableViewCellAccessoryType.Checkmark

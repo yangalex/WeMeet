@@ -56,7 +56,7 @@ class MembersTableViewController: UITableViewController {
             return cell
         } else {
             cell.textLabel?.textColor = UIColor.blackColor()
-            cell.textLabel?.text = users[indexPath.row].username
+            cell.textLabel?.text = users[indexPath.row].objectForKey("name") as? String ?? "[no name]"
             cell.selectionStyle = .None
             return cell
         }

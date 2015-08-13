@@ -11,8 +11,12 @@ import Parse
 
 class Timeslot : PFObject, Comparable {
     
+    // date variables
+    @NSManaged var timeDate: TimeDate
     @NSManaged var hour: Int
     @NSManaged var isHalf: Bool
+    @NSManaged var weekday: String
+    
     @NSManaged var group: Group
     @NSManaged var user: PFUser
     

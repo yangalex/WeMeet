@@ -20,10 +20,12 @@ class HomeTableViewController: UITableViewController, NewGroupViewControllerDele
         super.viewDidLoad()
         self.navigationItem.hidesBackButton = true
         loadGroups()
-       
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        loadGroups()
     }
 
-    
     func loadGroups() {
         // Query user's groups
         var groupQuery = Group.query()!
@@ -53,10 +55,10 @@ class HomeTableViewController: UITableViewController, NewGroupViewControllerDele
         if segue.identifier == "CreateGroupSegue" {
             let destinationController = segue.destinationViewController as! NewGroupViewController
             destinationController.delegate = self
-        } else if segue.identifier == "GroupDisplaySegue" {
-            let destinationController = segue.destinationViewController as! GroupDisplayViewController
+        } else if segue.identifier == "DatesSegue" {
+            let destinationController = segue.destinationViewController as! DatesTableViewController
             destinationController.currentGroup = self.currentGroup
-        }
+        } 
     }
 }
 
@@ -110,7 +112,8 @@ extension HomeTableViewController: UITableViewDataSource, UITableViewDelegate {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         currentGroup = groups[indexPath.row]
-        performSegueWithIdentifier("GroupDisplaySegue", sender: self)
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        performSegueWithIdentifier("DatesSegue", sender: self)
     }
  
 }

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
 
@@ -67,12 +68,17 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         let usernameText = usernameTextField.text
         let passwordText = passwordTextField.text
         
+        SVProgressHUD.show()
+        UIApplication.sharedApplication().beginIgnoringInteractionEvents()
         PFUser.logInWithUsernameInBackground(usernameText, password: passwordText) { (user: PFUser?, error: NSError?) in
             if user != nil {
                 self.performSegueWithIdentifier("SignInSegue", sender: nil)
             } else {
                 AlertControllerHelper.displayErrorController(self, withMessage: "Invalid Login")
             }
+            
+            SVProgressHUD.dismiss()
+            UIApplication.sharedApplication().endIgnoringInteractionEvents()
         }
     }
     

@@ -78,7 +78,7 @@ class TimeGridViewController: UIViewController {
             elementsInRow++
             // if row is filled up
             if elementsInRow == 6 {
-                currentY = currentY + CGFloat(BUTTON_SIZE+10)
+                currentY = currentY + CGFloat(BUTTON_SIZE+5)
                 currentX = 8
                 elementsInRow = 0
             } else {
