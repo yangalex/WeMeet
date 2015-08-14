@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import DZNEmptyDataSet
 
 class HomeTableViewController: UITableViewController, NewGroupViewControllerDelegate {
 
@@ -18,6 +19,11 @@ class HomeTableViewController: UITableViewController, NewGroupViewControllerDele
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.tableView.emptyDataSetSource = self
+        self.tableView.emptyDataSetDelegate = self
+        self.tableView.tableFooterView = UIView()
+        
         self.navigationItem.hidesBackButton = true
         loadGroups()
     }
@@ -116,4 +122,41 @@ extension HomeTableViewController: UITableViewDataSource, UITableViewDelegate {
         performSegueWithIdentifier("DatesSegue", sender: self)
     }
  
+}
+
+
+extension HomeTableViewController: DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
+    func imageForEmptyDataSet(scrollView: UIScrollView!) -> UIImage! {
+        return UIImage(named: "SadFace")
+    }
+    
+    func titleForEmptyDataSet(scrollView: UIScrollView!) -> NSAttributedString! {
+        let text = "No Groups"
+        var attrs = [NSFontAttributeName : UIFont.systemFontOfSize(20)]
+        var attributedString = NSAttributedString(string: text, attributes: attrs)
+        return attributedString
+    }
+    
+    func descriptionForEmptyDataSet(scrollView: UIScrollView!) -> NSAttributedString! {
+        let text = "Press the '+' button to start creating groups"
+        var attrs = [NSFontAttributeName : UIFont.systemFontOfSize(15)]
+        var attributedString = NSAttributedString(string: text, attributes: attrs)
+        return attributedString
+    }
+    
+    func backgroundColorForEmptyDataSet(scrollView: UIScrollView!) -> UIColor! {
+        return UIColor.whiteColor()
+    }
+    
+    func emptyDataSetShouldDisplay(scrollView: UIScrollView!) -> Bool {
+        return true
+    }
+    
+    func emptyDataSetShouldAllowTouch(scrollView: UIScrollView!) -> Bool {
+        return false
+    }
+    
+    func emptyDataSetShouldAllowScroll(scrollView: UIScrollView!) -> Bool {
+        return false
+    }
 }

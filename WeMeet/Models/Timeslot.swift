@@ -77,6 +77,7 @@ class Timeslot : PFObject, Comparable {
         
         query.includeKey("user")
         query.includeKey("group")
+        query.includeKey("timeDate")
         
         query.orderByAscending("hour")
         return query

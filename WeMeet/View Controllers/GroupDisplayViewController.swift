@@ -12,9 +12,13 @@ import SVProgressHUD
 class GroupDisplayViewController: UIViewController, MemberFilterTableViewControllerDelegate, TimeDisplayViewControllerDataSource, SelectTimeViewControllerDelegate {
     
     var timeDisplayController: TimeDisplayViewController!
-    var currentGroup: Group?
+    var currentGroup: Group!
     var timeslots = [Timeslot]()
     var selectedUsers: [PFUser]!
+    
+    // dates
+    var timeDate: TimeDate!
+    var weekday: String!
     
     @IBOutlet weak var selectTimesButton: UIButton!
     @IBOutlet weak var membersButton: UIButton!
@@ -63,6 +67,13 @@ class GroupDisplayViewController: UIViewController, MemberFilterTableViewControl
     func loadTimeslots() {
         var timeQuery = Timeslot.query()
         timeQuery?.whereKey("group", equalTo: currentGroup!)
+        
+        // if group is day of week
+        if currentGroup.dayOfWeekOnly {
+            timeQuery?.whereKey("weekday", equalTo: self.weekday)
+        } else {
+            timeQuery?.whereKey("timeDate", equalTo: self.timeDate)
+        }
         
         SVProgressHUD.show()
         timeQuery?.findObjectsInBackgroundWithBlock { objects, error in
@@ -144,6 +155,13 @@ class GroupDisplayViewController: UIViewController, MemberFilterTableViewControl
             let destinationController = segue.destinationViewController as! SelectTimeViewController
             destinationController.currentGroup = self.currentGroup
             destinationController.delegate = self
+            
+            if currentGroup.dayOfWeekOnly {
+                destinationController.weekday = self.weekday
+            } else {
+                destinationController.currentDate = self.timeDate
+            }
+            
         } else if segue.identifier == "FilterSegue" {
             let destinationNavigationController = segue.destinationViewController as! UINavigationController
             let destinationController = destinationNavigationController.topViewController as! MemberFilterTableViewController

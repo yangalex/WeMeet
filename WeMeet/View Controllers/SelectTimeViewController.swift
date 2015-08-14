@@ -21,7 +21,8 @@ class SelectTimeViewController: UIViewController {
     var timeGrid: TimeGridViewController!
     var currentGroup: Group?
     var selectedTimeslots: [Timeslot]!
-    
+    var currentDate: TimeDate!
+    var weekday: String!
     var saveSuccess: Bool?
     var deleteSuccess: Bool?
     
@@ -36,6 +37,13 @@ class SelectTimeViewController: UIViewController {
         var timeQuery = Timeslot.query()
         timeQuery?.whereKey("user", equalTo: PFUser.currentUser()!)
         timeQuery?.whereKey("group", equalTo: currentGroup!)
+        
+        if currentGroup!.dayOfWeekOnly {
+            timeQuery?.whereKey("weekday", equalTo: self.weekday)
+        } else {
+            timeQuery?.whereKey("timeDate", equalTo: self.currentDate)
+        }
+        
         timeQuery?.findObjectsInBackgroundWithBlock { objects, error in
             if error == nil {
                 if let timeslots = objects as? [Timeslot] {
@@ -62,6 +70,14 @@ class SelectTimeViewController: UIViewController {
                     let newTimeslot = Timeslot.fromString(timeButton.titleLabel!.text!)
                     newTimeslot.user = PFUser.currentUser()!
                     newTimeslot.group = currentGroup!
+                    
+                    // if group is dayOfWeek
+                    if currentGroup!.dayOfWeekOnly {
+                        newTimeslot.weekday = self.weekday
+                    } else {
+                        newTimeslot.timeDate = self.currentDate
+                    }
+                    
                     updatedSelectedTimeslots.append(newTimeslot)
                 }
             }

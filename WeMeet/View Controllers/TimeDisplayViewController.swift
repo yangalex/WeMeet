@@ -39,8 +39,25 @@ class TimeDisplayViewController: UIViewController {
     func reloadDisplay() {
         selectedTimeslots = dataSource?.timeslotsForDisplay()
         clearView()
-        loadButtons()
-        highlightButtons()
+        
+        if selectedTimeslots.isEmpty {
+            let sadFace = UIImage(named: "SadFace")
+            let imageView = UIImageView(image: sadFace)
+            imageView.frame = CGRectMake(self.view.frame.width/2 - 50, self.view.frame.height/2 - 100, 100, 100)
+            
+            let label = UILabel(frame: CGRectMake(self.view.frame.width/2-100, self.view.frame.height/2 + 10, 200, 20))
+            label.font = UIFont(name: "HelveticaNeue", size: 15)
+            label.textAlignment = NSTextAlignment.Center
+            label.textColor = UIColor(red: 116/255, green: 116/255, blue: 116/255, alpha: 1.0)
+            label.text = "No matched timeslots available"
+            label.sizeToFit()
+            
+            self.view.addSubview(label)
+            self.view.addSubview(imageView)
+        } else {
+            loadButtons()
+            highlightButtons()
+        }
     }
     
     
@@ -168,7 +185,7 @@ class TimeDisplayViewController: UIViewController {
         buttonsArray.removeAll(keepCapacity: true)
         
         for subview in self.view.subviews {
-            if subview is UIButton || subview.tag == 15 {
+            if subview is UIButton || subview.tag == 15 || subview is UIImageView || subview is UILabel {
                 subview.removeFromSuperview()
             }
         }

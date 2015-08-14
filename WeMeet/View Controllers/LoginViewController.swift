@@ -74,7 +74,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             if user != nil {
                 self.performSegueWithIdentifier("SignInSegue", sender: nil)
             } else {
-                AlertControllerHelper.displayErrorController(self, withMessage: "Invalid Login")
+                AlertControllerHelper.displayErrorController(self, withMessage: error!.localizedDescription)
             }
             
             SVProgressHUD.dismiss()

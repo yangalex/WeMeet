@@ -9,6 +9,7 @@
 import UIKit
 import APAddressBook
 import SVProgressHUD
+import DZNEmptyDataSet
 
 class AddressBookTableViewController: UITableViewController, ContactCellDelegate {
     
@@ -21,6 +22,10 @@ class AddressBookTableViewController: UITableViewController, ContactCellDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView?.allowsSelection = false
+        
+        tableView.emptyDataSetDelegate = self
+        tableView.emptyDataSetSource = self
+        tableView.tableFooterView = UIView()
         
         loadAddressBook()
     }
@@ -54,7 +59,7 @@ class AddressBookTableViewController: UITableViewController, ContactCellDelegate
             if let users = objects as? [PFUser] {
                 
                 let userPhoneNumbers: [String] = users.map {
-                     $0.objectForKey("phone") as! String
+                     $0.objectForKey("phone") as? String ?? "[no phone]"
                 }
                 
                 for contact in contacts {
@@ -177,6 +182,42 @@ extension AddressBookTableViewController: UITableViewDelegate, UITableViewDataSo
 }
 
 
+extension AddressBookTableViewController: DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
+    func imageForEmptyDataSet(scrollView: UIScrollView!) -> UIImage! {
+        return UIImage(named: "Contact")
+    }
+    
+    func titleForEmptyDataSet(scrollView: UIScrollView!) -> NSAttributedString! {
+        let text = "No Contacts"
+        var attrs = [NSFontAttributeName : UIFont.systemFontOfSize(20)]
+        var attributedString = NSAttributedString(string: text, attributes: attrs)
+        return attributedString
+    }
+    
+    func descriptionForEmptyDataSet(scrollView: UIScrollView!) -> NSAttributedString! {
+        let text = "There doesn't seem to be any available contacts in your address book"
+        var attrs = [NSFontAttributeName : UIFont.systemFontOfSize(15)]
+        var attributedString = NSAttributedString(string: text, attributes: attrs)
+        return attributedString
+    }
+    
+    func backgroundColorForEmptyDataSet(scrollView: UIScrollView!) -> UIColor! {
+        return UIColor.whiteColor()
+    }
+    
+    func emptyDataSetShouldDisplay(scrollView: UIScrollView!) -> Bool {
+        return true
+    }
+    
+    func emptyDataSetShouldAllowTouch(scrollView: UIScrollView!) -> Bool {
+        return false
+    }
+    
+    func emptyDataSetShouldAllowScroll(scrollView: UIScrollView!) -> Bool {
+        return false
+    }
+ 
+}
 
 
 

@@ -8,10 +8,13 @@
 
 import UIKit
 import SVProgressHUD
+import DZNEmptyDataSet
 
 class DatesTableViewController: UITableViewController, NewDateViewControllerDelegate {
     
     var currentGroup: Group!
+    var currentDate: TimeDate!
+    var selectedWeekDay: String!
     var dates = [TimeDate]()
     var timeslots: [Timeslot] = [Timeslot]()
     
@@ -19,6 +22,13 @@ class DatesTableViewController: UITableViewController, NewDateViewControllerDele
         super.viewDidLoad()
         setupNavigationBar()
         
+        self.tableView.emptyDataSetSource = self
+        self.tableView.emptyDataSetDelegate = self
+        self.tableView.tableFooterView = UIView()
+        
+        if currentGroup.dayOfWeekOnly {
+            tableView.scrollEnabled = false
+        }
         
         // handle case where group is specific dates type
         if currentGroup.dayOfWeekOnly == false {
@@ -48,6 +58,7 @@ class DatesTableViewController: UITableViewController, NewDateViewControllerDele
             } else {
                 if let timeDates = objects as? [TimeDate] {
                     self.dates = timeDates
+                    self.dates.sort({$0 < $1})
                     self.tableView.reloadData()
                 }
             }
@@ -72,6 +83,17 @@ class DatesTableViewController: UITableViewController, NewDateViewControllerDele
             destinationController.currentGroup = self.currentGroup
             destinationController.delegate = self
             destinationController.existingDates = dates
+        } else if segue.identifier == "GroupDisplaySegue" {
+            let destinationController = segue.destinationViewController as! GroupDisplayViewController
+            
+            if currentGroup.dayOfWeekOnly {
+                destinationController.weekday = self.selectedWeekDay
+            } else {
+                destinationController.timeDate = self.currentDate
+            }
+            
+            destinationController.currentGroup = self.currentGroup
+            destinationController.selectedUsers = currentGroup.users
         }
     }
 
@@ -91,6 +113,14 @@ class DatesTableViewController: UITableViewController, NewDateViewControllerDele
         }
     }
 
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        if currentGroup.dayOfWeekOnly {
+            return self.view.frame.height/7
+        } else {
+            return 60
+        }
+    }
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("DateCell", forIndexPath: indexPath) as! UITableViewCell
 
@@ -116,12 +146,23 @@ class DatesTableViewController: UITableViewController, NewDateViewControllerDele
         } else {
             cell.textLabel!.text = dates[indexPath.row].stringDescription()
         }
+        
+        cell.textLabel!.textColor = UIColor(red: 116/255, green: 116/255, blue: 116/255, alpha: 1.0)
+        cell.textLabel!.font = UIFont(name: "Helvetica", size: 20)
+
         return cell
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        //
+        if currentGroup.dayOfWeekOnly == false {
+            currentDate = dates[indexPath.row]
+        } else {
+            if let cell = tableView.cellForRowAtIndexPath(indexPath) {
+                selectedWeekDay = cell.textLabel!.text!
+            }
+        }
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        performSegueWithIdentifier("GroupDisplaySegue", sender: nil)
     }
     /*
     // MARK: - Navigation
@@ -134,3 +175,57 @@ class DatesTableViewController: UITableViewController, NewDateViewControllerDele
     */
 
 }
+
+
+extension DatesTableViewController : DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
+    func imageForEmptyDataSet(scrollView: UIScrollView!) -> UIImage! {
+        return UIImage(named: "Calendar")
+    }
+    
+    func titleForEmptyDataSet(scrollView: UIScrollView!) -> NSAttributedString! {
+        let text = "No Dates Available"
+        let attrs = [NSFontAttributeName : UIFont.systemFontOfSize(20)]
+        let attributedString = NSAttributedString(string: text, attributes: attrs)
+        return attributedString
+    }
+    
+    func descriptionForEmptyDataSet(scrollView: UIScrollView!) -> NSAttributedString! {
+        let text = "Press the '+' button to start adding some dates"
+        let attrs = [NSFontAttributeName : UIFont.systemFontOfSize(15)]
+        let attributedString = NSAttributedString(string: text, attributes: attrs)
+        return attributedString
+    }
+    
+    func backgroundColorForEmptyDataSet(scrollView: UIScrollView!) -> UIColor! {
+        return UIColor.whiteColor()
+    }
+    
+    func emptyDataSetShouldDisplay(scrollView: UIScrollView!) -> Bool {
+        return true
+    }
+    
+    func emptyDataSetShouldAllowTouch(scrollView: UIScrollView!) -> Bool {
+        return false
+    }
+    
+    func emptyDataSetShouldAllowScroll(scrollView: UIScrollView!) -> Bool {
+        return false
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

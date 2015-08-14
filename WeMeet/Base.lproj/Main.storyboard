@@ -647,6 +647,7 @@
                                     <segment title="Specific Dates"/>
                                     <segment title="Days Of Week"/>
                                 </segments>
+                                <color key="tintColor" red="0.33725490200000002" green="0.83137254900000002" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
                             </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
