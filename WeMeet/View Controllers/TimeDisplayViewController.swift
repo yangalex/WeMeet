@@ -41,18 +41,25 @@ class TimeDisplayViewController: UIViewController {
         clearView()
         
         if selectedTimeslots.isEmpty {
-            let sadFace = UIImage(named: "SadFace")
-            let imageView = UIImageView(image: sadFace)
+            let clockImage = UIImage(named: "Clock")
+            let imageView = UIImageView(image: clockImage)
             imageView.frame = CGRectMake(self.view.frame.width/2 - 50, self.view.frame.height/2 - 100, 100, 100)
             
-            let label = UILabel(frame: CGRectMake(self.view.frame.width/2-100, self.view.frame.height/2 + 10, 200, 20))
-            label.font = UIFont(name: "HelveticaNeue", size: 15)
+            let label = UILabel(frame: CGRectMake(0, self.view.frame.height/2 + 10, self.view.frame.width, 20))
+            label.font = UIFont(name: "HelveticaNeue-Bold", size: 15)
             label.textAlignment = NSTextAlignment.Center
             label.textColor = UIColor(red: 116/255, green: 116/255, blue: 116/255, alpha: 1.0)
             label.text = "No matched timeslots available"
-            label.sizeToFit()
+            
+            
+            let descriptionLabel = UILabel(frame: CGRectMake(0, label.frame.origin.y+label.frame.height+5, self.view.frame.width, 20))
+            descriptionLabel.font = UIFont(name: "HelveticaNeue", size: 13)
+            descriptionLabel.textAlignment = NSTextAlignment.Center
+            descriptionLabel.textColor = UIColor(red: 116/255, green: 116/255, blue: 116/255, alpha: 1.0)
+            descriptionLabel.text = "Try selecting different times or filtering members."
             
             self.view.addSubview(label)
+            self.view.addSubview(descriptionLabel)
             self.view.addSubview(imageView)
         } else {
             loadButtons()

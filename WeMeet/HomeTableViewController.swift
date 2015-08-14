@@ -61,8 +61,8 @@ class HomeTableViewController: UITableViewController, NewGroupViewControllerDele
         if segue.identifier == "CreateGroupSegue" {
             let destinationController = segue.destinationViewController as! NewGroupViewController
             destinationController.delegate = self
-        } else if segue.identifier == "DatesSegue" {
-            let destinationController = segue.destinationViewController as! DatesTableViewController
+        } else if segue.identifier == "DatesSegue2" {
+            let destinationController = segue.destinationViewController as! DatesViewController
             destinationController.currentGroup = self.currentGroup
         } 
     }
@@ -119,7 +119,7 @@ extension HomeTableViewController: UITableViewDataSource, UITableViewDelegate {
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         currentGroup = groups[indexPath.row]
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
-        performSegueWithIdentifier("DatesSegue", sender: self)
+        performSegueWithIdentifier("DatesSegue2", sender: self)
     }
  
 }

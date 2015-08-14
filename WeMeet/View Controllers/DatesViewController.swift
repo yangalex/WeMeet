@@ -1,8 +1,8 @@
 //
-//  DatesTableViewController.swift
+//  DatesViewController.swift
 //  WeMeet
 //
-//  Created by Alexandre Yang on 8/13/15.
+//  Created by Alexandre Yang on 8/14/15.
 //  Copyright (c) 2015 Alex Yang. All rights reserved.
 //
 
@@ -10,16 +10,26 @@ import UIKit
 import SVProgressHUD
 import DZNEmptyDataSet
 
-class DatesTableViewController: UITableViewController, NewDateViewControllerDelegate {
+class DatesViewController: UIViewController {
+
+    @IBOutlet weak var addButton: UIButton!
+    @IBOutlet weak var datePicker: UIDatePicker!
+    
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var tableViewVerticalConstraint: NSLayoutConstraint!
     
     var currentGroup: Group!
     var currentDate: TimeDate!
     var selectedWeekDay: String!
     var dates = [TimeDate]()
-    var timeslots: [Timeslot] = [Timeslot]()
-    
+//    var timeslots: [Timeslot] = [Timeslot]()
+ 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tableView.dataSource = self
+        self.tableView.delegate = self
+        
+        setupButtons()
         setupNavigationBar()
         
         self.tableView.emptyDataSetSource = self
@@ -34,8 +44,18 @@ class DatesTableViewController: UITableViewController, NewDateViewControllerDele
         if currentGroup.dayOfWeekOnly == false {
             loadDates()
         }
-    }
+        
+        datePicker.minimumDate = NSDate()
 
+    }
+    
+    func setupButtons() {
+        addButton.backgroundColor = UIColor(red:0.31, green:0.83, blue:0.96, alpha:1)
+        addButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
+        addButton.titleLabel?.font = UIFont(name: "HelveticaNeue-Bold", size: 18)
+
+    }
+    
     func setupNavigationBar() {
         if !currentGroup.dayOfWeekOnly {
             navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add, target: self, action: "addDate:")
@@ -43,9 +63,9 @@ class DatesTableViewController: UITableViewController, NewDateViewControllerDele
         
         navigationItem.title = currentGroup.name
         self.navigationController?.navigationBar.topItem?.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.Plain, target: nil, action: nil)
- 
+        
     }
-    
+
     func loadDates() {
         let dateQuery = TimeDate.query()
         dateQuery?.whereKey("group", equalTo: currentGroup)
@@ -68,22 +88,62 @@ class DatesTableViewController: UITableViewController, NewDateViewControllerDele
         }
     }
 
+    @IBAction func createDatePressed(sender: UIButton) {
+        let components = NSCalendar.currentCalendar().components(NSCalendarUnit.CalendarUnitDay|NSCalendarUnit.CalendarUnitMonth|NSCalendarUnit.CalendarUnitYear, fromDate: datePicker.date)
+        
+        var newDate = TimeDate(year: components.year, month: components.month, day: components.day)
+        newDate.group = self.currentGroup
+        
+        // First check if the date already exists
+        if contains(dates, newDate) {
+            AlertControllerHelper.displayErrorController(self, withMessage: "Date already exists!")
+        } else {
+            SVProgressHUD.show()
+            newDate.saveInBackgroundWithBlock { success, error in
+                SVProgressHUD.dismiss()
+                if success {
+                    self.view.layoutIfNeeded()
+                    UIView.animateWithDuration(0.3) {
+                        self.tableViewVerticalConstraint.constant = 0
+                        self.view.layoutIfNeeded()
+                    }
+
+                    self.loadDates()
+                } else {
+                    AlertControllerHelper.displayErrorController(self, withMessage: "Oops, there was an error while adding date")
+                }
+            }
+        }
+        
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add, target: self, action: "addDate:")
+ 
+    }
+    
     
     func addDate(sender: UIBarButtonItem) {
-        performSegueWithIdentifier("NewDateSegue", sender: nil)
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Cancel, target: self, action: "cancelAdding")
+            
+        self.view.layoutIfNeeded()
+        UIView.animateWithDuration(0.3) {
+            self.tableViewVerticalConstraint.constant = self.datePicker.frame.height + self.addButton.frame.height
+            self.tableView.layer.borderColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.1).CGColor
+            self.tableView.layer.borderWidth = 1.0
+            self.view.layoutIfNeeded()
+        }
     }
     
-    func didFinishAddingDate() {
-        loadDates()
+    func cancelAdding() {
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add, target: self, action: "addDate:")
+        
+        self.view.layoutIfNeeded()
+        UIView.animateWithDuration(0.5) {
+            self.tableViewVerticalConstraint.constant = 0
+            self.view.layoutIfNeeded()
+        }
     }
- 
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "NewDateSegue" {
-            let destinationController = segue.destinationViewController as! NewDateViewController
-            destinationController.currentGroup = self.currentGroup
-            destinationController.delegate = self
-            destinationController.existingDates = dates
-        } else if segue.identifier == "GroupDisplaySegue" {
+        if segue.identifier == "GroupDisplaySegue" {
             let destinationController = segue.destinationViewController as! GroupDisplayViewController
             
             if currentGroup.dayOfWeekOnly {
@@ -97,23 +157,24 @@ class DatesTableViewController: UITableViewController, NewDateViewControllerDele
         }
     }
 
-    // MARK: - Table view data source
+}
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+extension DatesViewController: UITableViewDelegate, UITableViewDataSource {
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Potentially incomplete method implementation.
         // Return the number of sections.
         return 1
     }
-
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if currentGroup.dayOfWeekOnly {
             return 7
         } else {
             return dates.count
         }
     }
-
-    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         if currentGroup.dayOfWeekOnly {
             return self.view.frame.height/7
         } else {
@@ -121,9 +182,9 @@ class DatesTableViewController: UITableViewController, NewDateViewControllerDele
         }
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("DateCell", forIndexPath: indexPath) as! UITableViewCell
-
+        
         if currentGroup.dayOfWeekOnly {
             switch indexPath.row {
             case 0:
@@ -149,11 +210,11 @@ class DatesTableViewController: UITableViewController, NewDateViewControllerDele
         
         cell.textLabel!.textColor = UIColor(red: 116/255, green: 116/255, blue: 116/255, alpha: 1.0)
         cell.textLabel!.font = UIFont(name: "Helvetica", size: 20)
-
+        
         return cell
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if currentGroup.dayOfWeekOnly == false {
             currentDate = dates[indexPath.row]
         } else {
@@ -164,20 +225,9 @@ class DatesTableViewController: UITableViewController, NewDateViewControllerDele
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         performSegueWithIdentifier("GroupDisplaySegue", sender: nil)
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
 
-
-extension DatesTableViewController : DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
+extension DatesViewController : DZNEmptyDataSetDelegate, DZNEmptyDataSetSource {
     func imageForEmptyDataSet(scrollView: UIScrollView!) -> UIImage! {
         return UIImage(named: "Calendar")
     }
@@ -212,10 +262,6 @@ extension DatesTableViewController : DZNEmptyDataSetSource, DZNEmptyDataSetDeleg
         return false
     }
 }
-
-
-
-
 
 
 
