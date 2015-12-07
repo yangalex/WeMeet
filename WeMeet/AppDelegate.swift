@@ -32,6 +32,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Parse.setApplicationId("Qxt2lgULCKkQyBdvTRP2LPcPRzfzUZnTYjCY7txF", clientKey:"wOSYQC2Lcrc4dOZLKR91VdYMzugT5qWNJtLL02Hp")
         PFUser.enableRevocableSessionInBackground()
         
+        
+        if PFUser.currentUser() != nil {
+            if PFUser.currentUser()!.isAuthenticated() {
+                storyboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
+                let homeController = storyboard?.instantiateViewControllerWithIdentifier("HomeViewController") as! HomeTableViewController
+                
+                let navigationController = self.window?.rootViewController as! UINavigationController
+                navigationController.setViewControllers([homeController], animated: true)
+            }
+        } else {
+            storyboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
+            let loginController = storyboard?.instantiateViewControllerWithIdentifier("LoginViewController") as! LoginViewController
+            
+            let navigationController = self.window?.rootViewController as! UINavigationController
+            navigationController.setViewControllers([loginController], animated: true)
+        }
+        
+    
         return true
     }
 

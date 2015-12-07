@@ -14,8 +14,9 @@
 		AC0F6AF41B78F90E00BC3DC4 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0F6AF31B78F90E00BC3DC4 /* SignUpViewController.swift */; };
 		AC0F6AF61B79313B00BC3DC4 /* PhoneVerifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0F6AF51B79313B00BC3DC4 /* PhoneVerifyViewController.swift */; };
 		AC0F6B481B7D13CC00BC3DC4 /* TimeDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0F6B471B7D13CC00BC3DC4 /* TimeDate.swift */; };
+		AC1398341C152508007C7726 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC1398331C152508007C7726 /* StoreKit.framework */; };
+		AC1398361C15262E007C7726 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC1398351C15262E007C7726 /* Parse.framework */; };
 		AC45E0351B613F2C00F99066 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC45E0331B613F2C00F99066 /* Bolts.framework */; };
-		AC45E0361B613F2C00F99066 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC45E0341B613F2C00F99066 /* Parse.framework */; };
 		AC45E0381B613F9E00F99066 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC45E0371B613F9E00F99066 /* AudioToolbox.framework */; };
 		AC45E03A1B613FA500F99066 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC45E0391B613FA500F99066 /* CFNetwork.framework */; };
 		AC45E03D1B613FAC00F99066 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC45E03B1B613FAC00F99066 /* CoreGraphics.framework */; };
@@ -28,7 +29,6 @@
 		AC45E04C1B613FCB00F99066 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC45E0491B613FCB00F99066 /* SystemConfiguration.framework */; };
 		AC45E04E1B613FD200F99066 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC45E04D1B613FD200F99066 /* Accounts.framework */; };
 		AC45E0501B61673E00F99066 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC45E04F1B61673E00F99066 /* Group.swift */; };
-		AC45E0551B6168D400F99066 /* empty.m in Sources */ = {isa = PBXBuildFile; fileRef = AC45E0541B6168D400F99066 /* empty.m */; };
 		AC45E05E1B656B5F00F99066 /* Timeslot.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC45E05D1B656B5F00F99066 /* Timeslot.swift */; };
 		AC4E1A451B694E300090A8E5 /* TimeGridViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4E1A441B694E300090A8E5 /* TimeGridViewController.swift */; };
 		AC4E1A4A1B6958F70090A8E5 /* SelectTimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4E1A491B6958F70090A8E5 /* SelectTimeViewController.swift */; };
@@ -43,13 +43,13 @@
 		AC89429D1B75080A005D0A3D /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC89429B1B75080A005D0A3D /* AddressBook.framework */; };
 		AC89429E1B75080A005D0A3D /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC89429C1B75080A005D0A3D /* AddressBookUI.framework */; };
 		ACB1E9951B75518800426914 /* AddressBookTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB1E9941B75518800426914 /* AddressBookTableViewController.swift */; };
+		ACC9043A1B86BAD000D90B78 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC904391B86BAD000D90B78 /* ProfileViewController.swift */; };
 		ACD45AFC1B5405BF009B1DC9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD45AFB1B5405BF009B1DC9 /* AppDelegate.swift */; };
 		ACD45B011B5405BF009B1DC9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACD45AFF1B5405BF009B1DC9 /* Main.storyboard */; };
 		ACD45B031B5405BF009B1DC9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACD45B021B5405BF009B1DC9 /* Images.xcassets */; };
 		ACD45B061B5405BF009B1DC9 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACD45B041B5405BF009B1DC9 /* LaunchScreen.xib */; };
 		ACD45B121B5405BF009B1DC9 /* WeMeetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD45B111B5405BF009B1DC9 /* WeMeetTests.swift */; };
 		ACD45B1C1B54062F009B1DC9 /* HomeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD45B1B1B54062F009B1DC9 /* HomeTableViewController.swift */; };
-		ACE4F8EF1B657869005FBE85 /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACE4F8EE1B657869005FBE85 /* ParseUI.framework */; };
 		ACE4F8F21B667A9C005FBE85 /* NewGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE4F8F11B667A9C005FBE85 /* NewGroupViewController.swift */; };
 		ACE4F8F81B67C134005FBE85 /* GroupDisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE4F8F71B67C134005FBE85 /* GroupDisplayViewController.swift */; };
 /* End PBXBuildFile section */
@@ -73,8 +73,10 @@
 		AC0F6AF31B78F90E00BC3DC4 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		AC0F6AF51B79313B00BC3DC4 /* PhoneVerifyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhoneVerifyViewController.swift; sourceTree = "<group>"; };
 		AC0F6B471B7D13CC00BC3DC4 /* TimeDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeDate.swift; sourceTree = "<group>"; };
+		AC1398331C152508007C7726 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		AC1398351C15262E007C7726 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		AC1398381C1528FB007C7726 /* bridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bridge.h; sourceTree = "<group>"; };
 		AC45E0331B613F2C00F99066 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
-		AC45E0341B613F2C00F99066 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		AC45E0371B613F9E00F99066 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		AC45E0391B613FA500F99066 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		AC45E03B1B613FAC00F99066 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -87,7 +89,6 @@
 		AC45E0491B613FCB00F99066 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		AC45E04D1B613FD200F99066 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		AC45E04F1B61673E00F99066 /* Group.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
-		AC45E0541B6168D400F99066 /* empty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = empty.m; sourceTree = "<group>"; };
 		AC45E05D1B656B5F00F99066 /* Timeslot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Timeslot.swift; sourceTree = "<group>"; };
 		AC4E1A441B694E300090A8E5 /* TimeGridViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeGridViewController.swift; sourceTree = "<group>"; };
 		AC4E1A491B6958F70090A8E5 /* SelectTimeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectTimeViewController.swift; sourceTree = "<group>"; };
@@ -102,6 +103,7 @@
 		AC89429B1B75080A005D0A3D /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		AC89429C1B75080A005D0A3D /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
 		ACB1E9941B75518800426914 /* AddressBookTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddressBookTableViewController.swift; sourceTree = "<group>"; };
+		ACC904391B86BAD000D90B78 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		ACD45AF61B5405BF009B1DC9 /* WeMeet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeMeet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACD45AFA1B5405BF009B1DC9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ACD45AFB1B5405BF009B1DC9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -112,8 +114,6 @@
 		ACD45B101B5405BF009B1DC9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ACD45B111B5405BF009B1DC9 /* WeMeetTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeMeetTests.swift; sourceTree = "<group>"; };
 		ACD45B1B1B54062F009B1DC9 /* HomeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeTableViewController.swift; path = ../HomeTableViewController.swift; sourceTree = "<group>"; };
-		ACE4F8ED1B65782C005FBE85 /* WeMeet-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WeMeet-Bridging-Header.h"; sourceTree = "<group>"; };
-		ACE4F8EE1B657869005FBE85 /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ParseUI.framework; path = "../../../../../Downloads/parse-library-1.7.5/ParseUI.framework"; sourceTree = "<group>"; };
 		ACE4F8F11B667A9C005FBE85 /* NewGroupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewGroupViewController.swift; sourceTree = "<group>"; };
 		ACE4F8F71B67C134005FBE85 /* GroupDisplayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupDisplayViewController.swift; sourceTree = "<group>"; };
 		CABF17B01D7D5AF7BE6CC99C /* Pods-WeMeet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeMeet.release.xcconfig"; path = "Pods/Target Support Files/Pods-WeMeet/Pods-WeMeet.release.xcconfig"; sourceTree = "<group>"; };
@@ -124,12 +124,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC1398341C152508007C7726 /* StoreKit.framework in Frameworks */,
 				AC89429D1B75080A005D0A3D /* AddressBook.framework in Frameworks */,
 				AC89429E1B75080A005D0A3D /* AddressBookUI.framework in Frameworks */,
 				AC45E04E1B613FD200F99066 /* Accounts.framework in Frameworks */,
 				AC45E04A1B613FCB00F99066 /* libsqlite3.dylib in Frameworks */,
-				ACE4F8EF1B657869005FBE85 /* ParseUI.framework in Frameworks */,
 				AC45E04B1B613FCB00F99066 /* libz.dylib in Frameworks */,
+				AC1398361C15262E007C7726 /* Parse.framework in Frameworks */,
 				AC45E04C1B613FCB00F99066 /* SystemConfiguration.framework in Frameworks */,
 				AC45E0431B613FB900F99066 /* QuartzCore.framework in Frameworks */,
 				AC45E0441B613FB900F99066 /* Security.framework in Frameworks */,
@@ -138,7 +139,6 @@
 				AC45E03E1B613FAC00F99066 /* CoreLocation.framework in Frameworks */,
 				AC45E03A1B613FA500F99066 /* CFNetwork.framework in Frameworks */,
 				AC45E0381B613F9E00F99066 /* AudioToolbox.framework in Frameworks */,
-				AC45E0361B613F2C00F99066 /* Parse.framework in Frameworks */,
 				AC45E0351B613F2C00F99066 /* Bolts.framework in Frameworks */,
 				80EDF0B060FB4595E0C76D76 /* Pods_WeMeet.framework in Frameworks */,
 			);
@@ -157,6 +157,7 @@
 		1C58C2E6C5ADC0D0505F55F0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AC1398331C152508007C7726 /* StoreKit.framework */,
 				AC89429B1B75080A005D0A3D /* AddressBook.framework */,
 				AC89429C1B75080A005D0A3D /* AddressBookUI.framework */,
 				3BC798F3807628D72B82585E /* Pods_WeMeet.framework */,
@@ -180,6 +181,7 @@
 				AC0F6AF11B77E7D300BC3DC4 /* LoginViewController.swift */,
 				AC0F6AF31B78F90E00BC3DC4 /* SignUpViewController.swift */,
 				AC0F6AF51B79313B00BC3DC4 /* PhoneVerifyViewController.swift */,
+				ACC904391B86BAD000D90B78 /* ProfileViewController.swift */,
 				ACD45B1B1B54062F009B1DC9 /* HomeTableViewController.swift */,
 				ACE4F8F11B667A9C005FBE85 /* NewGroupViewController.swift */,
 				AC088F111B7E62E400E23C6A /* DatesViewController.swift */,
@@ -199,7 +201,7 @@
 		AC45E0321B613F0900F99066 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				ACE4F8EE1B657869005FBE85 /* ParseUI.framework */,
+				AC1398351C15262E007C7726 /* Parse.framework */,
 				AC45E04D1B613FD200F99066 /* Accounts.framework */,
 				AC45E0471B613FCB00F99066 /* libsqlite3.dylib */,
 				AC45E0481B613FCB00F99066 /* libz.dylib */,
@@ -212,7 +214,6 @@
 				AC45E0391B613FA500F99066 /* CFNetwork.framework */,
 				AC45E0371B613F9E00F99066 /* AudioToolbox.framework */,
 				AC45E0331B613F2C00F99066 /* Bolts.framework */,
-				AC45E0341B613F2C00F99066 /* Parse.framework */,
 			);
 			path = Frameworks;
 			sourceTree = "<group>";
@@ -251,7 +252,6 @@
 			isa = PBXGroup;
 			children = (
 				AC5A5BC21B716433007A975F /* Views */,
-				ACE4F8ED1B65782C005FBE85 /* WeMeet-Bridging-Header.h */,
 				AC45E0301B613F0900F99066 /* Models */,
 				AC45E0311B613F0900F99066 /* View Controllers */,
 				AC45E0321B613F0900F99066 /* Frameworks */,
@@ -260,8 +260,8 @@
 				ACD45B021B5405BF009B1DC9 /* Images.xcassets */,
 				ACD45B041B5405BF009B1DC9 /* LaunchScreen.xib */,
 				ACD45AF91B5405BF009B1DC9 /* Supporting Files */,
-				AC45E0541B6168D400F99066 /* empty.m */,
 				AC5A5BCB1B73BB85007A975F /* AlertControllerHelper.swift */,
+				AC1398381C1528FB007C7726 /* bridge.h */,
 			);
 			path = WeMeet;
 			sourceTree = "<group>";
@@ -475,13 +475,13 @@
 				AC4E1A451B694E300090A8E5 /* TimeGridViewController.swift in Sources */,
 				ACE4F8F81B67C134005FBE85 /* GroupDisplayViewController.swift in Sources */,
 				AC088F121B7E62E400E23C6A /* DatesViewController.swift in Sources */,
-				AC45E0551B6168D400F99066 /* empty.m in Sources */,
 				AC5A5BCC1B73BB85007A975F /* AlertControllerHelper.swift in Sources */,
 				AC0F6AF41B78F90E00BC3DC4 /* SignUpViewController.swift in Sources */,
 				ACD45B1C1B54062F009B1DC9 /* HomeTableViewController.swift in Sources */,
 				AC5A5B911B7159D3007A975F /* MembersTableViewController.swift in Sources */,
 				ACD45AFC1B5405BF009B1DC9 /* AppDelegate.swift in Sources */,
 				AC5A5B8D1B6FF645007A975F /* TimeDisplayViewController.swift in Sources */,
+				ACC9043A1B86BAD000D90B78 /* ProfileViewController.swift in Sources */,
 				AC0F6B481B7D13CC00BC3DC4 /* TimeDate.swift in Sources */,
 				AC5A5B5B1B6BCA4B007A975F /* MemberFilterTableViewController.swift in Sources */,
 			);
@@ -613,14 +613,20 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/WeMeet/Frameworks/**",
+					"$(SRCROOT)/**",
+					"$(PROJECT_DIR)/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/WeMeet",
 					"$(inherited)",
-					"$(PROJECT_DIR)/WeMeet/Frameworks",
-					"/Users/Alexandre/Downloads/parse-library-1.7.5",
+					"$(PROJECT_DIR)/lib",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 				);
 				INFOPLIST_FILE = WeMeet/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "WeMeet/WeMeet-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = WeMeet/bridge.h;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -632,14 +638,20 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/WeMeet/Frameworks/**",
+					"$(SRCROOT)/**",
+					"$(PROJECT_DIR)/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/WeMeet",
 					"$(inherited)",
-					"$(PROJECT_DIR)/WeMeet/Frameworks",
-					"/Users/Alexandre/Downloads/parse-library-1.7.5",
+					"$(PROJECT_DIR)/lib",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 				);
 				INFOPLIST_FILE = WeMeet/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "WeMeet/WeMeet-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = WeMeet/bridge.h;
 			};
 			name = Release;
 		};

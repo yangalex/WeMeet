@@ -13,6 +13,7 @@ class Group : PFObject {
     @NSManaged var name: String
     @NSManaged var users: [PFUser]
     @NSManaged var dayOfWeekOnly: Bool
+    @NSManaged var uniqueId: Int
     
     override init() {
         super.init()

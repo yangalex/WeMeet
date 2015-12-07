@@ -9,7 +9,7 @@
 import UIKit
 import DZNEmptyDataSet
 
-class HomeTableViewController: UITableViewController, NewGroupViewControllerDelegate {
+class HomeTableViewController: UITableViewController, NewGroupViewControllerDelegate, ProfileViewControllerDelegate {
 
     @IBOutlet weak var newGroupButton: UIBarButtonItem!
     
@@ -25,8 +25,10 @@ class HomeTableViewController: UITableViewController, NewGroupViewControllerDele
         self.tableView.tableFooterView = UIView()
         
         self.navigationItem.hidesBackButton = true
+        
         loadGroups()
     }
+    
     
     override func viewWillAppear(animated: Bool) {
         loadGroups()
@@ -52,7 +54,28 @@ class HomeTableViewController: UITableViewController, NewGroupViewControllerDele
     
     
     func didFinishSavingGroup(newGroup: Group) {
+        // display alert controller with group id
+        let idAlert = UIAlertController(title: "Success", message: "Your group ID is: \(newGroup.uniqueId)\nShare it with your other group members!", preferredStyle: .Alert)
+        idAlert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
+           self.presentViewController(idAlert, animated: true, completion: nil)
+
         loadGroups()
+    }
+    
+    
+    func logout() {
+        PFUser.logOutInBackgroundWithBlock { (error: NSError?) in
+            // check if is rootviewcontroller
+            if self.navigationController?.viewControllers.count == 1  {
+                let storyboard: UIStoryboard? = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
+                let loginController = storyboard?.instantiateViewControllerWithIdentifier("LoginViewController") as! LoginViewController
+                
+                self.navigationController!.setViewControllers([loginController], animated: false)
+ 
+            } else {
+                self.navigationController?.popToRootViewControllerAnimated(true);
+            }
+        }
     }
 
     // MARK: - Navigation
@@ -64,7 +87,10 @@ class HomeTableViewController: UITableViewController, NewGroupViewControllerDele
         } else if segue.identifier == "DatesSegue2" {
             let destinationController = segue.destinationViewController as! DatesViewController
             destinationController.currentGroup = self.currentGroup
-        } 
+        } else if segue.identifier == "ProfileSegue" {
+            let destinationController = segue.destinationViewController as! ProfileViewController
+            destinationController.delegate = self
+        }
     }
 }
 
@@ -121,6 +147,7 @@ extension HomeTableViewController: UITableViewDataSource, UITableViewDelegate {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         performSegueWithIdentifier("DatesSegue2", sender: self)
     }
+
  
 }
 
@@ -160,3 +187,4 @@ extension HomeTableViewController: DZNEmptyDataSetSource, DZNEmptyDataSetDelegat
         return false
     }
 }
+

@@ -21,7 +21,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        // check if user is already logged in
+//         check if user is already logged in
 //        if let user = PFUser.currentUser() {
 //            if user.isAuthenticated() {
 //                performSegueWithIdentifier("SignInSegue", sender: nil)

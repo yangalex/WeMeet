@@ -32,6 +32,10 @@ class DatesViewController: UIViewController {
         setupButtons()
         setupNavigationBar()
         
+        // add a tap gesture recognizer to the titleView
+        let tapGesture = UITapGestureRecognizer(target: self, action: "tappedTitle")
+        self.navigationItem.titleView?.addGestureRecognizer(tapGesture)
+        
         self.tableView.emptyDataSetSource = self
         self.tableView.emptyDataSetDelegate = self
         self.tableView.tableFooterView = UIView()
@@ -61,13 +65,51 @@ class DatesViewController: UIViewController {
             navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add, target: self, action: "addDate:")
         }
         
-        navigationItem.title = currentGroup.name
+//        navigationItem.title = currentGroup.name
         self.navigationController?.navigationBar.topItem?.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.Plain, target: nil, action: nil)
         
+        // start setting up title and subtitle view in navigation bar
+        let titleLabel = UILabel(frame: CGRectMake(0, 0, 0, 0))
+        titleLabel.text = currentGroup.name
+        titleLabel.textColor = UIColor.whiteColor()
+        titleLabel.font = UIFont(name: "HelveticaNeue", size: 20)
+        titleLabel.backgroundColor = UIColor.clearColor()
+        titleLabel.userInteractionEnabled = true
+        titleLabel.sizeToFit()
+        
+        let subtitleLabel = UILabel(frame: CGRectMake(0, 22, 0, 0))
+        subtitleLabel.text = "Tap for group info"
+        subtitleLabel.textColor = UIColor.whiteColor()
+        subtitleLabel.font = UIFont(name: "HelveticaNeue", size: 10)
+        subtitleLabel.backgroundColor = UIColor.clearColor()
+        subtitleLabel.userInteractionEnabled = true
+        subtitleLabel.sizeToFit()
+        
+        // create container uiview
+        let titleSubtitleView = UIView(frame: CGRectMake(0, 0, max(titleLabel.frame.width, subtitleLabel.frame.width), 30))
+        titleSubtitleView.addSubview(titleLabel)
+        titleSubtitleView.addSubview(subtitleLabel)
+        // center labels
+        let widthDiff: CGFloat = subtitleLabel.frame.width - titleLabel.frame.width
+        if widthDiff > 0 {
+            titleLabel.frame.origin.x = widthDiff/2.0
+        } else {
+            subtitleLabel.frame.origin.x = abs(widthDiff)/2.0
+        }
+        
+        titleSubtitleView.userInteractionEnabled = true
+        self.navigationItem.titleView = titleSubtitleView
+    
+    }
+    
+    func tappedTitle() {
+        println("Tapped title")
+        let titleLabel = self.navigationItem.titleView?.subviews[0] as! UILabel
     }
 
     func loadDates() {
         let dateQuery = TimeDate.query()
+//        dateQuery?.cachePolicy = PFCachePolicy.CacheElseNetwork
         dateQuery?.whereKey("group", equalTo: currentGroup)
         
         UIApplication.sharedApplication().beginIgnoringInteractionEvents()

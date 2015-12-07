@@ -6,6 +6,136 @@
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
+        <!--Profile View Controller-->
+        <scene sceneID="rZw-W0-6fU">
+            <objects>
+                <viewController id="fC5-bk-7uZ" customClass="ProfileViewController" customModule="WeMeet" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="6fb-8k-J4Q"/>
+                        <viewControllerLayoutGuide type="bottom" id="hEJ-nc-Q9v"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="O0W-4s-sA5">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L3T-iq-rVz" userLabel="Status Bar Background">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="20"/>
+                                <color key="backgroundColor" red="0.33725490200000002" green="0.83137254900000002" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="600" id="TuS-Mc-rcR"/>
+                                    <constraint firstAttribute="height" constant="20" id="csF-XL-Yx9"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="TuS-Mc-rcR"/>
+                                    </mask>
+                                </variation>
+                            </view>
+                            <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H3n-2F-wlG">
+                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="3m5-0C-h9U"/>
+                                    <constraint firstAttribute="width" constant="600" id="bd5-RU-I1k"/>
+                                </constraints>
+                                <color key="barTintColor" red="0.33725490200000002" green="0.83137254900000002" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                </textAttributes>
+                                <items>
+                                    <navigationItem title="Profile" id="Ykh-M5-DEh">
+                                        <barButtonItem key="leftBarButtonItem" title="Logout" id="KWu-aT-kVh">
+                                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                            <connections>
+                                                <action selector="logoutClicked:" destination="fC5-bk-7uZ" id="Hs3-4U-RCD"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="EEE-bd-er7">
+                                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                            <connections>
+                                                <action selector="doneClicked:" destination="fC5-bk-7uZ" id="7cr-AK-7Pl"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="bd5-RU-I1k"/>
+                                    </mask>
+                                </variation>
+                            </navigationBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phone" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nQC-EU-gBL">
+                                <rect key="frame" x="0.0" y="249" width="600" height="37"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="31"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TYP-iM-wjj">
+                                <rect key="frame" x="0.0" y="162" width="600" height="37"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="31"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phone Number" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pTW-pO-d9o">
+                                <rect key="frame" x="243" y="229" width="115" height="20"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fA0-x8-fwK">
+                                <rect key="frame" x="259" y="141" width="83" height="21"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z0w-RB-Cgx">
+                                <rect key="frame" x="0.0" y="84" width="600" height="37"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="31"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.33725490196078434" green="0.83137254901960778" blue="0.95294117647058818" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="nQC-EU-gBL" secondAttribute="trailing" id="1ce-eg-bao"/>
+                            <constraint firstItem="nQC-EU-gBL" firstAttribute="top" secondItem="pTW-pO-d9o" secondAttribute="bottom" id="4HX-oe-jZc"/>
+                            <constraint firstAttribute="trailing" secondItem="TYP-iM-wjj" secondAttribute="trailing" id="5kw-95-iaa"/>
+                            <constraint firstItem="H3n-2F-wlG" firstAttribute="top" secondItem="6fb-8k-J4Q" secondAttribute="bottom" id="5qJ-fs-Yzo"/>
+                            <constraint firstItem="z0w-RB-Cgx" firstAttribute="centerX" secondItem="nQC-EU-gBL" secondAttribute="centerX" id="Goo-pB-h6F"/>
+                            <constraint firstItem="z0w-RB-Cgx" firstAttribute="leading" secondItem="O0W-4s-sA5" secondAttribute="leading" id="Grp-3A-00l"/>
+                            <constraint firstItem="H3n-2F-wlG" firstAttribute="leading" secondItem="O0W-4s-sA5" secondAttribute="leading" id="Hs8-0K-Wff"/>
+                            <constraint firstItem="H3n-2F-wlG" firstAttribute="top" secondItem="O0W-4s-sA5" secondAttribute="top" id="MVd-42-fRK"/>
+                            <constraint firstAttribute="trailing" secondItem="z0w-RB-Cgx" secondAttribute="trailing" id="Ow2-g4-cZm"/>
+                            <constraint firstItem="pTW-pO-d9o" firstAttribute="top" secondItem="TYP-iM-wjj" secondAttribute="bottom" constant="30" id="SJR-7D-JUD"/>
+                            <constraint firstItem="fA0-x8-fwK" firstAttribute="centerX" secondItem="TYP-iM-wjj" secondAttribute="centerX" id="TeF-h5-BwT"/>
+                            <constraint firstAttribute="centerX" secondItem="z0w-RB-Cgx" secondAttribute="centerX" id="Ylu-HX-yXf"/>
+                            <constraint firstItem="z0w-RB-Cgx" firstAttribute="centerX" secondItem="fA0-x8-fwK" secondAttribute="centerX" id="ZfR-pT-GYZ"/>
+                            <constraint firstItem="TYP-iM-wjj" firstAttribute="leading" secondItem="O0W-4s-sA5" secondAttribute="leading" id="d33-TL-Jnw"/>
+                            <constraint firstItem="z0w-RB-Cgx" firstAttribute="top" secondItem="H3n-2F-wlG" secondAttribute="bottom" constant="20" id="eOC-R5-xPO"/>
+                            <constraint firstItem="z0w-RB-Cgx" firstAttribute="centerX" secondItem="pTW-pO-d9o" secondAttribute="centerX" id="i3m-Yj-N0G"/>
+                            <constraint firstItem="L3T-iq-rVz" firstAttribute="top" secondItem="O0W-4s-sA5" secondAttribute="top" id="nPE-L5-zKa"/>
+                            <constraint firstItem="fA0-x8-fwK" firstAttribute="top" secondItem="z0w-RB-Cgx" secondAttribute="bottom" constant="20" id="pEF-v4-wsL"/>
+                            <constraint firstItem="nQC-EU-gBL" firstAttribute="leading" secondItem="O0W-4s-sA5" secondAttribute="leading" id="r4V-Px-IrN"/>
+                            <constraint firstAttribute="trailing" secondItem="H3n-2F-wlG" secondAttribute="trailing" id="tVh-WS-vIP"/>
+                            <constraint firstItem="TYP-iM-wjj" firstAttribute="top" secondItem="fA0-x8-fwK" secondAttribute="bottom" id="tgB-I4-Rhe"/>
+                            <constraint firstItem="L3T-iq-rVz" firstAttribute="leading" secondItem="O0W-4s-sA5" secondAttribute="leading" id="tiH-wq-E2K"/>
+                            <constraint firstAttribute="trailing" secondItem="L3T-iq-rVz" secondAttribute="trailing" id="w7W-7D-Epe"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="MVd-42-fRK"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="nameLabel" destination="z0w-RB-Cgx" id="Hdh-7c-8wa"/>
+                        <outlet property="phoneLabel" destination="nQC-EU-gBL" id="XVJ-pd-vvu"/>
+                        <outlet property="usernameLabel" destination="TYP-iM-wjj" id="Nhj-7z-WDk"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pMs-7e-QAt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1625" y="-688"/>
+        </scene>
         <!--Your Groups-->
         <scene sceneID="Gsi-lZ-dcL">
             <objects>
@@ -42,6 +172,12 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Your Groups" id="aYH-wK-GuI">
+                        <barButtonItem key="leftBarButtonItem" title="Profile" id="X4W-R5-JZB">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            <connections>
+                                <segue destination="fC5-bk-7uZ" kind="presentation" identifier="ProfileSegue" id="P8d-UV-BsS"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="FF4-XM-UNA">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
@@ -657,7 +793,7 @@
         <!--Login View Controller-->
         <scene sceneID="fd0-9f-4Ap">
             <objects>
-                <viewController id="zI7-Ia-iKj" userLabel="Login View Controller" customClass="LoginViewController" customModule="WeMeet" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" id="zI7-Ia-iKj" userLabel="Login View Controller" customClass="LoginViewController" customModule="WeMeet" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Zv5-DX-izK"/>
                         <viewControllerLayoutGuide type="bottom" id="CbD-U2-ruI"/>

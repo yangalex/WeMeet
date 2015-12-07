@@ -26,10 +26,16 @@ class NewGroupViewController: UIViewController {
         setupGroupNameTextField()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+//    @IBAction func createUniqueId(sender: AnyObject) {
+//        PFCloud.callFunctionInBackground("createGroupId", withParameters: nil) { (object: AnyObject?, error: NSError?) -> Void in
+//            if error == nil {
+//                let groupId = object as! Int
+//                println(groupId)
+//            } else {
+//                println(error?.localizedDescription)
+//            }
+//        }
+//    }
     
     func setupGroupNameTextField() {
         let borderColor = UIColor(red: 210/255, green: 210/255, blue: 210/255, alpha: 1.0)
@@ -56,15 +62,25 @@ class NewGroupViewController: UIViewController {
             }
             
             newGroup.users.append(PFUser.currentUser()!)
-            newGroup.saveInBackgroundWithBlock { success, error in
-                if success {
-//                    println("Successfully saved new group")
-                    self.delegate?.didFinishSavingGroup(newGroup)
-                } else {
-                    println("\(error?.localizedDescription)")
-                }
-            }
             
+            // set new group's unique id
+            PFCloud.callFunctionInBackground("createGroupId", withParameters: nil) { (object: AnyObject?, error: NSError?) -> Void in
+                if error == nil {
+                    let uniqueId = object as! Int
+                    newGroup.uniqueId = uniqueId
+                    newGroup.saveInBackgroundWithBlock { success, error in
+                        if success {
+                            self.delegate?.didFinishSavingGroup(newGroup)
+                        } else {
+                            AlertControllerHelper.displayErrorController(self, withMessage: error!.localizedDescription)
+                        }
+                        
+                    }
+                } else {
+                    AlertControllerHelper.displayErrorController(self, withMessage: error!.localizedDescription)
+                }
+                
+            }
             dismissViewControllerAnimated(true, completion: nil)
         } else {
             let errorController = UIAlertController(title: "Invalid Group Name", message: "Group name text field cannot be empty", preferredStyle: .Alert)
